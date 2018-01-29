@@ -1,0 +1,29 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+      classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+  }
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'eclipse'
+  apply plugin: 'spring-boot'
+
+  repositories {
+    mavenCentral()
+  }
+
+  bootRepackage {
+    enabled = false
+  }
+}
+
+project(':library_customer_tests') {
+    dependencies {
+        compile project(':library')
+    }
+}
