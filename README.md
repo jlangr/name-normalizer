@@ -2,7 +2,7 @@
 
 TDD Paint-by-Numbers exercise: Name Normalizer
 
-The "paint-by-numbers" means you get to color in-between lines already drawn for you. In the case of TDD, that means the tests.
+The "paint-by-numbers" means you get to color in-between lines already drawn for you. In the case of TDD, that means the tests. **These are intended to be first TDD exercises.**
 
 This is a great introductory way to learn about the incremental growth aspect of TDD (which isn't all that TDD is) by working through a family-friendly sequence of tests already specified for you. Thanks to James Grenning for the technique!
 
