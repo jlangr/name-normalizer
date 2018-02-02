@@ -13,7 +13,7 @@ namespace Tests
             normalizer = new AuthorNameNormalizer();
         }
 
-        [Fact(Skip="start here! Remove the skip argument."]
+        [Fact(Skip="start here! Remove the skip argument.")]
         public void ReturnsEmptyStringWhenEmpty()
         {
             normalizer.Normalize("").Should().Be("");
