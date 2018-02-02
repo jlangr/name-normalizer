@@ -12,6 +12,7 @@ public class AnAuthorNameNormalizer {
     private AuthorNameNormalizer normalizer =
             new AuthorNameNormalizer();
 
+    @Disabled
     @Test
     public void returnsEmptyStringWhenEmpty() {
         assertThat(normalizer.normalize(""),
