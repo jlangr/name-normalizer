@@ -1,0 +1,9 @@
+### macOS ###
+.DS_Store
+
+### Xcode ###
+xcuserdata/
+
+### AppCode ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+.idea/
