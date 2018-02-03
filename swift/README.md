@@ -1,0 +1,1 @@
+The Swift version of name-normalizer is an Xcode project. It uses Swift 4 and XCTest, running on macOS.
