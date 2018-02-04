@@ -28,4 +28,5 @@ Currently this repo contains implementations in the following languages:
 * C#
 * Clojure
 * Java
+* Objective-C
 * Swift

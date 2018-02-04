@@ -1,0 +1,1 @@
+The Objective-C version of name-normalizer is an Xcode project. It uses XCTest, running on macOS.
