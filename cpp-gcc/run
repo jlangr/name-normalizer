@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pushd build
+if [[ ! -e "Makefile" ]]; then
+  cmake ..
+fi
+make && test/test --failed-only
+popd
