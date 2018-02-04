@@ -73,9 +73,9 @@
 		48FEF63E20257EE300C19268 /* NameNormalizer */ = {
 			isa = PBXGroup;
 			children = (
+				BB170A00EF16AEBE6B982ADA /* AuthorNameNormalizer.swift */,
 				48FEF63F20257EE300C19268 /* NameNormalizer.h */,
 				48FEF64020257EE300C19268 /* Info.plist */,
-				BB170A00EF16AEBE6B982ADA /* AuthorNameNormalizer.swift */,
 			);
 			path = NameNormalizer;
 			sourceTree = "<group>";
@@ -83,8 +83,8 @@
 		48FEF64920257EE300C19268 /* NameNormalizerTests */ = {
 			isa = PBXGroup;
 			children = (
-				48FEF64C20257EE300C19268 /* Info.plist */,
 				BB1703835BC39B072092D9ED /* AuthorNameNormalizerTests.swift */,
+				48FEF64C20257EE300C19268 /* Info.plist */,
 			);
 			path = NameNormalizerTests;
 			sourceTree = "<group>";
