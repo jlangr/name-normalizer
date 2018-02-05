@@ -26,6 +26,7 @@ Here is the complete set of instructions:
 Currently this repo contains implementations in the following languages:
 
 * C#
+* C++ (gcc)
 * Clojure
 * Java
 * Objective-C (contributor: Jon Reid)
