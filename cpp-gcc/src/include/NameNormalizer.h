@@ -6,16 +6,12 @@
 
 #include "StringUtil.h"
 
-class InvalidNameException : public std::exception {};
+namespace name_util {
+  class InvalidNameException : public std::exception {};
 
-class NormalizedName {
-public:
-    NormalizedName(const std::string& name) {}
-    ~NormalizedName() {}
-
-    std::string AsString() const {
-        return "wha?";
-    }
-};
+  std::string normalize(const std::string& name) {
+      return "wha?";
+  }
+}
 
 #endif

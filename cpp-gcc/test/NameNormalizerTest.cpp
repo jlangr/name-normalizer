@@ -4,39 +4,40 @@
 
 using namespace testing;
 using namespace std;
+using namespace name_util;
 
 TEST(ANameNormalizer, DISABLED_ReturnsAnEmptyStringWhenGivenSame) {
-    ASSERT_THAT(NormalizedName{""}.AsString(), StrEq(""));
+    ASSERT_THAT(normalize(""), StrEq(""));
 }
 
 TEST(ANameNormalizer, DISABLED_SimplyReturnsASingleWordName) {
-    ASSERT_THAT(NormalizedName{"Plato"}.AsString(), StrEq("Plato"));
+    ASSERT_THAT(normalize("Plato"), StrEq("Plato"));
 }
 
 TEST(ANameNormalizer, DISABLED_SwapsFirstAndLastNames) {
-    ASSERT_THAT(NormalizedName{"Haruki Murakami"}.AsString(), StrEq("Murakami, Haruki"));
+    ASSERT_THAT(normalize("Haruki Murakami"), StrEq("Murakami, Haruki"));
 }
 
 TEST(ANameNormalizer, DISABLED_TrimsWhitespace) {
-    ASSERT_THAT(NormalizedName{"  Big Boi   "}.AsString(), StrEq("Boi, Big"));
+    ASSERT_THAT(normalize("  Big Boi   "), StrEq("Boi, Big"));
 }
 
 TEST(ANameNormalizer, DISABLED_ReplacesMiddleNameWithInitial) {
-    ASSERT_THAT(NormalizedName{"Henry David Thoreau"}.AsString(), StrEq("Thoreau, Henry D."));
+    ASSERT_THAT(normalize("Henry David Thoreau"), StrEq("Thoreau, Henry D."));
 }
 
 TEST(ANameNormalizer, DISABLED_DoesNotInitializeOneLetterMiddleName) {
-    ASSERT_THAT(NormalizedName{"Harry S Truman"}.AsString(), StrEq("Truman, Harry S"));
+    ASSERT_THAT(normalize("Harry S Truman"), StrEq("Truman, Harry S"));
 }
 
 TEST(ANameNormalizer, DISABLED_InitializesEachOfMultipleMiddleNames) {
-    ASSERT_THAT(NormalizedName{"Julia Scarlett Elizabeth Louis-Dreyfus"}.AsString(), StrEq("Louis-Dreyfus, Julia S. E."));
+    ASSERT_THAT(normalize("Julia Scarlett Elizabeth Louis-Dreyfus"), StrEq("Louis-Dreyfus, Julia S. E."));
 }
 
 TEST(ANameNormalizer, DISABLED_AppendsSuffixesToEnd) {
-    ASSERT_THAT(NormalizedName{"Martin Luther King, Jr."}.AsString(), StrEq("King, Martin L., Jr."));
+    ASSERT_THAT(normalize("Martin Luther King, Jr."), StrEq("King, Martin L., Jr."));
 }
 
 TEST(ANameNormalizer, DISABLED_ThrowsWhenNameContainsTwoCommas) {
-    ASSERT_THROW(NormalizedName{"Thurston, Howell, III"}, InvalidNameException);
+    ASSERT_THROW(normalize("Thurston, Howell, III"), InvalidNameException);
 }
