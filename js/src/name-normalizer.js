@@ -1,7 +1,13 @@
 export const normalize = name => {
+  throwWhenNameContainsTooManyCommas(name);
   const parts = suffixless(name).trim().split(' ');
   if (parts.length === 1) return name;
   return `${lastName(parts)}, ${firstName(parts)}${middleInitials(parts)}${suffix(name)}`;
+}
+
+const throwWhenNameContainsTooManyCommas = name => {
+  if (commaCount(name) > 1)
+    throw new TypeError();
 }
 
 const middleInitials = parts => {
@@ -21,3 +27,5 @@ const initial = name => ` ${name[0]}${name.length === 1 ? '': '.'}`;
 const lastName = parts => parts[parts.length - 1];
 
 const firstName = parts => parts[0];
+
+const commaCount = name => (name.match(/,/g) || []).length;

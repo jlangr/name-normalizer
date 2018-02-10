@@ -33,7 +33,7 @@ describe('a name normalizer', () => {
       expect(normalize("Martin Luther King, Jr.")).toEqual("King, Martin L., Jr.");
   });
 
-  xit('throws when name contains two commas', () => {
-    expect(() => { normalizer.normalize("Thurston, Howell, III") }).toThrow();
+  it('throws when name contains two commas', () => {
+    expect(() => { normalize("Thurston, Howell, III") }).toThrow();
   });
 });
