@@ -1,3 +1,3 @@
-export const nameNormalizer = name => {
+export const normalize = name => {
   return "wha?";
 }
