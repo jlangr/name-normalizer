@@ -6,12 +6,12 @@ public func normalize(name: String) throws -> String {
     return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))"
 }
 
-private func firstName(_ parts: [Substring]) -> Substring {
-    return parts.first!
+private func firstName(_ parts: [Substring]) -> String {
+    return String(parts.first!)
 }
 
-private func lastName(_ parts: [Substring]) -> Substring {
-    return parts.last!
+private func lastName(_ parts: [Substring]) -> String {
+    return String(parts.last!)
 }
 
 private func middleInitial(_ parts: [Substring]) -> String {
