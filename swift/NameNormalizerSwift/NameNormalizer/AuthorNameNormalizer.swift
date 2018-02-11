@@ -3,7 +3,11 @@ public func normalize(name: String) throws -> String {
     if parts.count < 2 {
         return name
     }
-    return "\(lastName(parts)), \(parts.first!)\(middleInitial(parts))"
+    return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))"
+}
+
+private func firstName(_ parts: [Substring]) -> Substring {
+    return parts.first!
 }
 
 private func lastName(_ parts: [Substring]) -> Substring {
