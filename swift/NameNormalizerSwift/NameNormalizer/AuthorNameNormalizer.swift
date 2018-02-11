@@ -1,4 +1,13 @@
 public func normalize(name: String) throws -> String {
+    let (nameWithoutSuffix, suffix) = splitSuffix(name)
+    let parts = nameWithoutSuffix.split(separator: " ")
+    if parts.count < 2 {
+        return nameWithoutSuffix
+    }
+    return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))\(suffix)"
+}
+
+private func splitSuffix(_ name: String) -> (String, String) {
     let prefixSuffix = name.split(separator: ",")
     let nameWithoutSuffix: String
     let suffix: String
@@ -9,11 +18,7 @@ public func normalize(name: String) throws -> String {
         nameWithoutSuffix = name
         suffix = ""
     }
-    let parts = nameWithoutSuffix.split(separator: " ")
-    if parts.count < 2 {
-        return nameWithoutSuffix
-    }
-    return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))\(suffix)"
+    return (nameWithoutSuffix, suffix)
 }
 
 private func firstName(_ parts: [Substring]) -> String {
