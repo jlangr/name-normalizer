@@ -15,10 +15,12 @@ private func lastName(_ parts: [Substring]) -> String {
 }
 
 private func middleInitial(_ parts: [Substring]) -> String {
-    if parts.count > 2 {
-        return initial(middleName: parts[1])
+    var initials = ""
+    let middleNames: ArraySlice<Substring> = parts[1 ..< parts.count - 1]
+    for middleName in middleNames {
+        initials += initial(middleName: middleName)
     }
-    return ""
+    return initials
 }
 
 private func initial(middleName: Substring) -> String {
