@@ -15,12 +15,8 @@ private func lastName(_ parts: [Substring]) -> String {
 }
 
 private func middleInitial(_ parts: [Substring]) -> String {
-    var initials = ""
     let middleNames: ArraySlice<Substring> = parts[1 ..< parts.count - 1]
-    for middleName in middleNames {
-        initials += initial(middleName: middleName)
-    }
-    return initials
+    return middleNames.map { initial(middleName: $0) }.joined()
 }
 
 private func initial(middleName: Substring) -> String {
