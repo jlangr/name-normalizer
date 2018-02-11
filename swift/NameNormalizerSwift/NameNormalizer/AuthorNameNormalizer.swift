@@ -17,9 +17,8 @@ private func lastName(_ parts: [Substring]) -> String {
 private func middleInitial(_ parts: [Substring]) -> String {
     if parts.count > 2 {
         return initial(middleName: parts[1])
-    } else {
-        return ""
     }
+    return ""
 }
 
 private func initial(middleName: Substring) -> String {
