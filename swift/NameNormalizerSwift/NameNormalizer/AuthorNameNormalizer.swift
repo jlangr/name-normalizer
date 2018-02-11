@@ -1,7 +1,14 @@
 public func normalize(name: String) throws -> String {
-    let parts = name.split(separator: " ")
+    let prefixSuffix = name.split(separator: ",")
+    let nameWithoutSuffix: String
+    if prefixSuffix.count > 1 {
+        nameWithoutSuffix = String(prefixSuffix.first!)
+    } else {
+        nameWithoutSuffix = name
+    }
+    let parts = nameWithoutSuffix.split(separator: " ")
     if parts.count < 2 {
-        return name
+        return nameWithoutSuffix
     }
     return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))"
 }
