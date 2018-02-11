@@ -7,9 +7,11 @@ public func normalize(name: String) throws -> String {
 }
 
 private func middleInitial(_ parts: [Substring]) -> String {
-    var middleInitial = ""
+    let middleInitial: String
     if parts.count > 2 {
         middleInitial = " \(parts[1].first!)."
+    } else {
+        middleInitial = ""
     }
     return middleInitial
 }
