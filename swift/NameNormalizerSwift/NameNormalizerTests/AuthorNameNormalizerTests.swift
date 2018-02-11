@@ -3,7 +3,7 @@ import XCTest
 
 class AuthorNameNormalizerTests: XCTestCase {
 
-    func DISABLED_testReturnsEmptyStringWhenEmpty() {
+    func testReturnsEmptyStringWhenEmpty() {
         XCTAssertEqual(try normalize(name: ""), "")
     }
 
