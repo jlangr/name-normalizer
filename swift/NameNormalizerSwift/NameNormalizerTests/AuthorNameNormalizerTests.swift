@@ -15,7 +15,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: "Haruki Murakami"), "Murakami, Haruki")
     }
 
-    func DISABLED_testTrimsLeadingAndTrailingWhitespace() {
+    func testTrimsLeadingAndTrailingWhitespace() {
         XCTAssertEqual(try normalize(name: "  Big Boi   "), "Boi, Big")
     }
 
