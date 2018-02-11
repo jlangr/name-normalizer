@@ -9,16 +9,11 @@ public func normalize(name: String) throws -> String {
 
 private func splitSuffix(_ name: String) -> (String, String) {
     let prefixSuffix = name.split(separator: ",")
-    let nameWithoutSuffix: String
-    let suffix: String
     if prefixSuffix.count > 1 {
-        nameWithoutSuffix = String(prefixSuffix.first!)
-        suffix = ",\(prefixSuffix.last!)"
+        return (String(prefixSuffix.first!), ",\(prefixSuffix.last!)")
     } else {
-        nameWithoutSuffix = name
-        suffix = ""
+        return (name, "")
     }
-    return (nameWithoutSuffix, suffix)
 }
 
 private func firstName(_ parts: [Substring]) -> String {
