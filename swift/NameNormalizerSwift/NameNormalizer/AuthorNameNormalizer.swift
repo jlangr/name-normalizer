@@ -9,10 +9,10 @@ public func normalize(name: String) throws -> String {
 
 private func splitSuffix(_ name: String) -> (String, String) {
     let parts = name.split(separator: ",")
-    if parts.count > 1 {
-        return (String(parts.first!), ",\(parts.last!)")
+    if parts.count < 2 {
+        return (name, "")
     }
-    return (name, "")
+    return (String(parts.first!), ",\(parts.last!)")
 }
 
 private func firstName(_ parts: [Substring]) -> String {
