@@ -18,7 +18,8 @@ private func middleInitial(_ parts: [Substring]) -> String {
     if parts.count > 2 {
         let middleName = parts[1]
         let period = middleName.count > 1 ? "." : ""
-        return " \(middleName.first!)\(period)"
+        let result = " \(middleName.first!)\(period)"
+        return result
     } else {
         return ""
     }
