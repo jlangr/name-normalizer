@@ -31,7 +31,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: "Julia Scarlett Elizabeth Louis-Dreyfus"), "Louis-Dreyfus, Julia S. E.")
     }
 
-    func DISABLED_testAppendsSuffixesToEnd() {
+    func testAppendsSuffixesToEnd() {
         XCTAssertEqual(try normalize(name: "Martin Luther King, Jr."), "King, Martin L., Jr.")
     }
 
