@@ -11,9 +11,8 @@ private func splitSuffix(_ name: String) -> (String, String) {
     let prefixSuffix = name.split(separator: ",")
     if prefixSuffix.count > 1 {
         return (String(prefixSuffix.first!), ",\(prefixSuffix.last!)")
-    } else {
-        return (name, "")
     }
+    return (name, "")
 }
 
 private func firstName(_ parts: [Substring]) -> String {
