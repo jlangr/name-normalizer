@@ -7,7 +7,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: ""), "")
     }
 
-    func DISABLED_testReturnsSingleWordName() {
+    func testReturnsSingleWordName() {
         XCTAssertEqual(try normalize(name: "Plato"), "Plato")
     }
 
