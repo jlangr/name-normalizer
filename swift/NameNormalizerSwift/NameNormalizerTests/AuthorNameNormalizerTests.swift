@@ -19,7 +19,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: "  Big Boi   "), "Boi, Big")
     }
 
-    func DISABLED_testInitializesMiddleName() {
+    func testInitializesMiddleName() {
         XCTAssertEqual(try normalize(name: "Henry David Thoreau"), "Thoreau, Henry D.")
     }
 
