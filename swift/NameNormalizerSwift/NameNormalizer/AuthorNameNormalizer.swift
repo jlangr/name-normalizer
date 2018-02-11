@@ -26,6 +26,5 @@ private func middleInitial(_ parts: [Substring]) -> String {
 
 private func initial(middleName: Substring) -> String {
     let period = middleName.count > 1 ? "." : ""
-    let result = " \(middleName.first!)\(period)";
-    return result
+    return " \(middleName.first!)\(period)";
 }
