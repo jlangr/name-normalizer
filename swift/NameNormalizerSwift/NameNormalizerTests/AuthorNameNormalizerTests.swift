@@ -11,7 +11,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: "Plato"), "Plato")
     }
 
-    func DISABLED_testSwapsFirstAndLastNames() {
+    func testSwapsFirstAndLastNames() {
         XCTAssertEqual(try normalize(name: "Haruki Murakami"), "Murakami, Haruki")
     }
 
