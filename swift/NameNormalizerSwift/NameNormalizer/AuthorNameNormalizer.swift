@@ -3,9 +3,9 @@ public func normalize(name: String) throws -> String {
     if parts.count < 2 {
         return name
     }
+    var middleInitial = ""
     if parts.count > 2 {
-        let middleInitial = " \(parts[1].first!)."
-        return "\(parts.last!), \(parts.first!)\(middleInitial)"
+        middleInitial = " \(parts[1].first!)."
     }
-    return "\(parts.last!), \(parts.first!)"
+    return "\(parts.last!), \(parts.first!)\(middleInitial)"
 }
