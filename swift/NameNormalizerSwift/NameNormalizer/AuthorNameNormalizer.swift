@@ -8,9 +8,9 @@ public func normalize(name: String) throws -> String {
 }
 
 private func splitSuffix(_ name: String) -> (String, String) {
-    let prefixSuffix = name.split(separator: ",")
-    if prefixSuffix.count > 1 {
-        return (String(prefixSuffix.first!), ",\(prefixSuffix.last!)")
+    let parts = name.split(separator: ",")
+    if parts.count > 1 {
+        return (String(parts.first!), ",\(parts.last!)")
     }
     return (name, "")
 }
