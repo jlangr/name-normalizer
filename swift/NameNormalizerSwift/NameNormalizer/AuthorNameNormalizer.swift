@@ -16,7 +16,12 @@ private func lastName(_ parts: [Substring]) -> String {
 
 private func middleInitial(_ parts: [Substring]) -> String {
     if parts.count > 2 {
-        return " \(parts[1].first!)."
+        let middleName = parts[1]
+        var period = ""
+        if middleName.count > 1 {
+            period = "."
+        }
+        return " \(parts[1].first!)\(period)"
     } else {
         return ""
     }
