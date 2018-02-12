@@ -35,7 +35,7 @@ class AuthorNameNormalizerTests: XCTestCase {
         XCTAssertEqual(try normalize(name: "Martin Luther King, Jr."), "King, Martin L., Jr.")
     }
 
-    func DISABLED_testThrowsWhenNameContainsTwoCommas() {
+    func testThrowsWhenNameContainsTwoCommas() {
         XCTAssertThrowsError(try normalize(name: "Thurston, Howell, III"))
     }
 }
