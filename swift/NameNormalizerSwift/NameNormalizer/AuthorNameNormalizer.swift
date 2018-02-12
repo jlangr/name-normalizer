@@ -1,5 +1,9 @@
+public enum AuthorNameNormalizerError: Swift.Error {
+    case multipleCommas
+}
+
 public func normalize(name: String) throws -> String {
-    let suffixParts = splitSuffix(name)
+    let suffixParts = try splitSuffix(name)
     let parts = suffixParts.nameWithoutSuffix.split(separator: " ")
     if parts.count < 2 {
         return suffixParts.nameWithoutSuffix
@@ -7,8 +11,11 @@ public func normalize(name: String) throws -> String {
     return "\(lastName(parts)), \(firstName(parts))\(middleInitial(parts))\(suffixParts.suffix)"
 }
 
-private func splitSuffix(_ name: String) -> (nameWithoutSuffix: String, suffix: String) {
+private func splitSuffix(_ name: String) throws -> (nameWithoutSuffix: String, suffix: String) {
     let parts = name.split(separator: ",")
+    if parts.count > 2 {
+        throw AuthorNameNormalizerError.multipleCommas
+    }
     if parts.count < 2 {
         return (nameWithoutSuffix: name, suffix: "")
     }
