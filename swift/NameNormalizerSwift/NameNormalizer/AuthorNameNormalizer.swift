@@ -13,13 +13,13 @@ public func normalize(name: String) throws -> String {
 
 private func splitSuffix(_ name: String) throws -> (nameWithoutSuffix: String, suffix: String) {
     let parts = name.split(separator: ",")
-    if parts.count > 2 {
-        throw AuthorNameNormalizerError.multipleCommas
-    }
     if parts.count < 2 {
         return (nameWithoutSuffix: name, suffix: "")
+    } else if parts.count == 2 {
+        return (nameWithoutSuffix: String(parts.first!), suffix: ",\(parts.last!)")
+    } else {
+        throw AuthorNameNormalizerError.multipleCommas
     }
-    return (nameWithoutSuffix: String(parts.first!), suffix: ",\(parts.last!)")
 }
 
 private func firstName(_ parts: [Substring]) -> String {
