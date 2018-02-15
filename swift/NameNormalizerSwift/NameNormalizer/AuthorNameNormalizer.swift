@@ -17,9 +17,8 @@ private func splitSuffix(_ name: String) throws -> (nameWithoutSuffix: String, s
         return (nameWithoutSuffix: name, suffix: "")
     } else if parts.count == 2 {
         return (nameWithoutSuffix: String(parts.first!), suffix: ",\(parts.last!)")
-    } else {
-        throw AuthorNameNormalizerError.multipleCommas
     }
+    throw AuthorNameNormalizerError.multipleCommas
 }
 
 private func doesNotHaveMultipleParts(_ parts: [Substring]) -> Bool {
