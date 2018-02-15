@@ -13,7 +13,7 @@ public func normalize(name: String) throws -> String {
 
 private func splitSuffix(_ name: String) throws -> (nameWithoutSuffix: String, suffix: String) {
     let parts = name.split(separator: ",")
-    if parts.count < 2 {
+    if doesNotHaveMultipleParts(parts) {
         return (nameWithoutSuffix: name, suffix: "")
     } else if parts.count == 2 {
         return (nameWithoutSuffix: String(parts.first!), suffix: ",\(parts.last!)")
