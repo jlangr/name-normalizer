@@ -29,9 +29,7 @@
     if (parts.count > 2)
     {
         NSString *middleName = parts[1];
-        NSString *period = @"";
-        if (middleName.length > 1)
-            period = @".";
+        NSString *period = middleName.length > 1 ? @"." : @"";
         return [NSString stringWithFormat:@" %@%@", [middleName substringToIndex:1], period];
     }
     return @"";
