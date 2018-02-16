@@ -27,10 +27,7 @@
 - (NSString *)middleInitialFromParts:(NSArray<NSString *> *)parts
 {
     if (parts.count > 2)
-    {
-        NSString *middleName = parts[1];
-        return [self initialForMiddleName:middleName];
-    }
+        return [self initialForMiddleName:parts[1]];
     return @"";
 }
 
