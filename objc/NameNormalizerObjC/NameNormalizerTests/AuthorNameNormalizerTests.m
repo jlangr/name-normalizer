@@ -31,7 +31,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Plato"], @"Plato");
 }
 
-- (void)DISABLED_testSwapsFirstAndLastNames
+- (void)testSwapsFirstAndLastNames
 {
     XCTAssertEqualObjects([normalizer normalize:@"Haruki Murakami"], @"Murakami, Haruki");
 }
