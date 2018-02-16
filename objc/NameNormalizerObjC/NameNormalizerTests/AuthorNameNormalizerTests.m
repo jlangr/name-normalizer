@@ -41,7 +41,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"  Big Boi   "], @"Boi, Big");
 }
 
-- (void)DISABLED_testInitializesMiddleName
+- (void)testInitializesMiddleName
 {
     XCTAssertEqualObjects([normalizer normalize:@"Henry David Thoreau"], @"Thoreau, Henry D.");
 }
