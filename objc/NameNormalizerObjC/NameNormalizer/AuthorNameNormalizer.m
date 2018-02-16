@@ -4,7 +4,7 @@
 
 - (NSString *)normalize:(NSString *)name
 {
-    return @"";
+    return name;
 }
 
 @end
