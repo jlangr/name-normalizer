@@ -4,7 +4,8 @@
 
 - (NSString *)normalize:(NSString *)name
 {
-    NSArray<NSString *> *parts = [name componentsSeparatedByString:@" "];
+    NSString *trimmed = [name stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+    NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
     if (parts.count > 1)
         return [NSString stringWithFormat:@"%@, %@", parts.lastObject, parts.firstObject];
     return name;
