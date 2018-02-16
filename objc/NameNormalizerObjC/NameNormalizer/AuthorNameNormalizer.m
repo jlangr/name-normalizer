@@ -26,9 +26,10 @@
 
 - (NSString *)middleInitialFromParts:(NSArray<NSString *> *)parts
 {
-    if (parts.count > 2)
-        return [self initialForMiddleName:parts[1]];
-    return @"";
+    NSString *initials = @"";
+    for (int i = 1; i < parts.count - 1; ++i)
+        initials = [initials stringByAppendingString:[self initialForMiddleName:parts[i]]];
+    return initials;
 }
 
 - (NSString *)initialForMiddleName:(NSString *)middleName
