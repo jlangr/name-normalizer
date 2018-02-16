@@ -8,7 +8,12 @@
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
     if (parts.count < 2)
         return name;
-    return [NSString stringWithFormat:@"%@, %@%@", [self lastNameFromParts:parts], parts.firstObject, [self middleInitialFromParts:parts]];
+    return [NSString stringWithFormat:@"%@, %@%@", [self lastNameFromParts:parts], [self firstNameFromParts:parts], [self middleInitialFromParts:parts]];
+}
+
+- (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
+{
+    return parts.firstObject;
 }
 
 - (NSString *)lastNameFromParts:(NSArray<NSString *> *)parts
