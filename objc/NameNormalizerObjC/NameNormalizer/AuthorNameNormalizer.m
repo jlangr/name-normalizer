@@ -11,7 +11,7 @@
     return [NSString stringWithFormat:@"%@, %@%@",
                                       [self lastNameFromParts:parts],
                                       [self firstNameFromParts:parts],
-                                      [self middleInitialFromParts:parts]];
+                                      [self middleInitialsFromParts:parts]];
 }
 
 - (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
@@ -24,7 +24,7 @@
     return parts.lastObject;
 }
 
-- (NSString *)middleInitialFromParts:(NSArray<NSString *> *)parts
+- (NSString *)middleInitialsFromParts:(NSArray<NSString *> *)parts
 {
     NSString *initials = @"";
     for (int i = 1; i < parts.count - 1; ++i)
