@@ -51,7 +51,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Harry S Truman"], @"Truman, Harry S");
 }
 
-- (void)DISABLED_testInitializesEachOfMultipleMiddleNames
+- (void)testInitializesEachOfMultipleMiddleNames
 {
     XCTAssertEqualObjects([normalizer normalize:@"Julia Scarlett Elizabeth Louis-Dreyfus"], @"Louis-Dreyfus, Julia S. E.");
 }
