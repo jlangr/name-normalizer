@@ -21,7 +21,7 @@
     [super tearDown];
 }
 
-- (void)DISABLED_testReturnsEmptyStringWhenEmpty
+- (void)testReturnsEmptyStringWhenEmpty
 {
     XCTAssertEqualObjects([normalizer normalize:@""], @"");
 }
