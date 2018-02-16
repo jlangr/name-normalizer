@@ -27,7 +27,13 @@
 - (NSString *)middleInitialFromParts:(NSArray<NSString *> *)parts
 {
     if (parts.count > 2)
-        return [NSString stringWithFormat:@" %@.", [parts[1] substringToIndex:1]];
+    {
+        NSString *middleName = parts[1];
+        NSString *period = @"";
+        if (middleName.length > 1)
+            period = @".";
+        return [NSString stringWithFormat:@" %@%@", [middleName substringToIndex:1], period];
+    }
     return @"";
 }
 
