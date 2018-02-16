@@ -26,9 +26,9 @@
 
 - (NSString *)middleInitialsFromParts:(NSArray<NSString *> *)parts
 {
-    NSString *initials = @"";
+    NSMutableString *initials = [[NSMutableString alloc] init];
     for (int i = 1; i < parts.count - 1; ++i)
-        initials = [initials stringByAppendingString:[self initialForMiddleName:parts[i]]];
+        [initials appendString:[self initialForMiddleName:parts[i]]];
     return initials;
 }
 
