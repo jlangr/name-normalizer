@@ -14,10 +14,9 @@
 
 - (NSString *)middleInitialFromParts:(NSArray<NSString *> *)parts
 {
-    NSString *middleInitial = @"";
     if (parts.count > 2)
-        middleInitial = [NSString stringWithFormat:@" %@.", [parts[1] substringToIndex:1]];
-    return middleInitial;
+        return [NSString stringWithFormat:@" %@.", [parts[1] substringToIndex:1]];
+    return @"";
 }
 
 @end
