@@ -46,7 +46,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Henry David Thoreau"], @"Thoreau, Henry D.");
 }
 
-- (void)DISABLED_testDoesNotInitializeOneLetterMiddleName
+- (void)testDoesNotInitializeOneLetterMiddleName
 {
     XCTAssertEqualObjects([normalizer normalize:@"Harry S Truman"], @"Truman, Harry S");
 }
