@@ -26,7 +26,7 @@
     XCTAssertEqualObjects([normalizer normalize:@""], @"");
 }
 
-- (void)DISABLED_testReturnsSingleWordName
+- (void)testReturnsSingleWordName
 {
     XCTAssertEqualObjects([normalizer normalize:@"Plato"], @"Plato");
 }
