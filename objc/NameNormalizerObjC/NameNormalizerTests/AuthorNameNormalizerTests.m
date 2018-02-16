@@ -56,7 +56,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Julia Scarlett Elizabeth Louis-Dreyfus"], @"Louis-Dreyfus, Julia S. E.");
 }
 
-- (void)DISABLED_testAppendsSuffixesToEnd
+- (void)testAppendsSuffixesToEnd
 {
     XCTAssertEqualObjects([normalizer normalize:@"Martin Luther King, Jr."], @"King, Martin L., Jr.");
 }
