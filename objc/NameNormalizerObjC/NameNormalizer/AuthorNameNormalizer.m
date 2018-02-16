@@ -10,8 +10,8 @@
         return name;
     if (parts.count > 2)
     {
-        NSString *middleInitial = [parts[1] substringToIndex:1];
-        return [NSString stringWithFormat:@"%@, %@ %@.", parts.lastObject, parts.firstObject, middleInitial];
+        NSString *middleInitial = [NSString stringWithFormat:@" %@.", [parts[1] substringToIndex:1]];
+        return [NSString stringWithFormat:@"%@, %@%@", parts.lastObject, parts.firstObject, middleInitial];
     }
     return [NSString stringWithFormat:@"%@, %@", parts.lastObject, parts.firstObject];
 }
