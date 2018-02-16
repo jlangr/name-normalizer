@@ -36,7 +36,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Haruki Murakami"], @"Murakami, Haruki");
 }
 
-- (void)DISABLED_testTrimsLeadingAndTrailingWhitespace
+- (void)testTrimsLeadingAndTrailingWhitespace
 {
     XCTAssertEqualObjects([normalizer normalize:@"  Big Boi   "], @"Boi, Big");
 }
