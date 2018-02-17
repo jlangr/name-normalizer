@@ -28,12 +28,10 @@
 - (NSString *)suffixForName:(NSString *)name
 {
     NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
-    NSString *suffix;
     if (prefixSuffix.count > 1)
-        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
+        return [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
     else
-        suffix = @"";
-    return suffix;
+        return @"";
 }
 
 - (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
