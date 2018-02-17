@@ -7,13 +7,18 @@
     NSString *nameWithoutSuffix = [self stripSuffixFromName:name];
     NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
-    if (parts.count < 2)
+    if ([self doesNotHaveMultipleParts:parts])
         return name;
     return [NSString stringWithFormat:@"%@, %@%@%@",
                                       [self lastNameFromParts:parts],
                                       [self firstNameFromParts:parts],
                                       [self middleInitialsFromParts:parts],
                                       [self suffixForName:name]];
+}
+
+- (BOOL)doesNotHaveMultipleParts:(NSArray<NSString *> *)parts
+{
+    return parts.count < 2;
 }
 
 - (NSString *)stripSuffixFromName:(NSString *)name
