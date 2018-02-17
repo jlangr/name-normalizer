@@ -4,12 +4,7 @@
 
 - (NSString *)normalize:(NSString *)name
 {
-    NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
-    NSString *nameWithoutSuffix;
-    if (prefixSuffix.count > 1)
-        nameWithoutSuffix = prefixSuffix.firstObject;
-    else
-        nameWithoutSuffix = name;
+    NSString *nameWithoutSuffix = [self stripSuffixFromName:name];
     
     NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
@@ -20,6 +15,17 @@
                                       [self firstNameFromParts:parts],
                                       [self middleInitialsFromParts:parts],
                                       [self suffixForName:name]];
+}
+
+- (NSString *)stripSuffixFromName:(NSString *)name
+{
+    NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
+    NSString *nameWithoutSuffix;
+    if (prefixSuffix.count > 1)
+        nameWithoutSuffix = prefixSuffix.firstObject;
+    else
+        nameWithoutSuffix = name;
+    return nameWithoutSuffix;
 }
 
 - (NSString *)suffixForName:(NSString *)name
