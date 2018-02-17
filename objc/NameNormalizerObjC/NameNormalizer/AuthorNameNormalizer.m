@@ -30,8 +30,7 @@
     NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
     if (prefixSuffix.count <= 1)
         return @"";
-    else
-        return [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
+    return [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
 }
 
 - (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
