@@ -20,12 +20,10 @@
 - (NSString *)stripSuffixFromName:(NSString *)name
 {
     NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
-    NSString *nameWithoutSuffix;
     if (prefixSuffix.count > 1)
-        nameWithoutSuffix = prefixSuffix.firstObject;
+        return prefixSuffix.firstObject;
     else
-        nameWithoutSuffix = name;
-    return nameWithoutSuffix;
+        return name;
 }
 
 - (NSString *)suffixForName:(NSString *)name
