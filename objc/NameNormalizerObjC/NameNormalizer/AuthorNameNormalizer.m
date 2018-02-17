@@ -11,9 +11,6 @@
     else
         nameWithoutSuffix = name;
     
-    NSString *suffix;
-    suffix = [self suffixForName:name];
-    
     NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
     if (parts.count < 2)
@@ -22,7 +19,7 @@
                                       [self lastNameFromParts:parts],
                                       [self firstNameFromParts:parts],
                                       [self middleInitialsFromParts:parts],
-                                      suffix];
+                                      [self suffixForName:name]];
 }
 
 - (NSString *)suffixForName:(NSString *)name
