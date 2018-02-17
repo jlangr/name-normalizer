@@ -61,7 +61,7 @@
     XCTAssertEqualObjects([normalizer normalize:@"Martin Luther King, Jr."], @"King, Martin L., Jr.");
 }
 
-- (void)DISABLED_testThrowsWhenNameContainsTwoCommas
+- (void)testThrowsWhenNameContainsTwoCommas
 {
     XCTAssertThrows([normalizer normalize:@"Thurston, Howell, III"]);
 }
