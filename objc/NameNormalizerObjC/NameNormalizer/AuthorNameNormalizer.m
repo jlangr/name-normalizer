@@ -6,14 +6,16 @@
 {
     NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
     NSString *nameWithoutSuffix;
-    NSString *suffix;
-    if (prefixSuffix.count > 1) {
+    if (prefixSuffix.count > 1)
         nameWithoutSuffix = prefixSuffix.firstObject;
-        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
-    } else {
+    else
         nameWithoutSuffix = name;
+    
+    NSString *suffix;
+    if (prefixSuffix.count > 1)
+        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
+    else
         suffix = @"";
-    }
     
     NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
