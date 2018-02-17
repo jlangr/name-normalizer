@@ -26,7 +26,9 @@
     NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
     if (prefixSuffix.count <= 1)
         return name;
-    return prefixSuffix.firstObject;
+    else if (prefixSuffix.count == 2)
+        return prefixSuffix.firstObject;
+    @throw [[NSException alloc] initWithName:@"Multiple commas" reason:nil userInfo:nil];
 }
 
 - (NSString *)suffixForName:(NSString *)name
