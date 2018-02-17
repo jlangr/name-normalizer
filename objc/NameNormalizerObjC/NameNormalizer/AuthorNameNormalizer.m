@@ -4,14 +4,26 @@
 
 - (NSString *)normalize:(NSString *)name
 {
-    NSString *trimmed = [name stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+    NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
+    NSString *nameWithoutSuffix;
+    NSString *suffix;
+    if (prefixSuffix.count > 1) {
+        nameWithoutSuffix = prefixSuffix.firstObject;
+        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
+    } else {
+        nameWithoutSuffix = name;
+        suffix = @"";
+    }
+    
+    NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
     if (parts.count < 2)
         return name;
-    return [NSString stringWithFormat:@"%@, %@%@",
+    return [NSString stringWithFormat:@"%@, %@%@%@",
                                       [self lastNameFromParts:parts],
                                       [self firstNameFromParts:parts],
-                                      [self middleInitialsFromParts:parts]];
+                                      [self middleInitialsFromParts:parts],
+                                      suffix];
 }
 
 - (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
