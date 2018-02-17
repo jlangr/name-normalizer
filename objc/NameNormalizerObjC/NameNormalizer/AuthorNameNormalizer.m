@@ -50,7 +50,7 @@
 - (NSString *)middleInitialsFromParts:(NSArray<NSString *> *)parts
 {
     NSMutableString *initials = [[NSMutableString alloc] init];
-    for (int i = 1; i < parts.count - 1; ++i)
+    for (NSUInteger i = 1; i < parts.count - 1; ++i)
         [initials appendString:[self initialForMiddleName:parts[i]]];
     return initials;
 }
