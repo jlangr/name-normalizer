@@ -12,10 +12,7 @@
         nameWithoutSuffix = name;
     
     NSString *suffix;
-    if (prefixSuffix.count > 1)
-        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
-    else
-        suffix = @"";
+    suffix = [self suffixForName:name];
     
     NSString *trimmed = [nameWithoutSuffix stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     NSArray<NSString *> *parts = [trimmed componentsSeparatedByString:@" "];
@@ -26,6 +23,17 @@
                                       [self firstNameFromParts:parts],
                                       [self middleInitialsFromParts:parts],
                                       suffix];
+}
+
+- (NSString *)suffixForName:(NSString *)name
+{
+    NSArray<NSString *> *prefixSuffix = [name componentsSeparatedByString:@","];
+    NSString *suffix;
+    if (prefixSuffix.count > 1)
+        suffix = [NSString stringWithFormat:@",%@", prefixSuffix.lastObject];
+    else
+        suffix = @"";
+    return suffix;
 }
 
 - (NSString *)firstNameFromParts:(NSArray<NSString *> *)parts
