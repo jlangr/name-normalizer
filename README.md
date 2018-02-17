@@ -31,3 +31,5 @@ Currently this repo contains implementations in the following languages:
 * Java
 * Objective-C (contributor: Jon Reid)
 * Swift (contributor: Jon Reid)
+
+You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
