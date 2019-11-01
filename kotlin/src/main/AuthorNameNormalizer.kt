@@ -1,6 +1,9 @@
 class AuthorNameNormalizer() {
     fun normalize(name: String): String {
         val nameAndSuffix = splitSuffix(name)
+        if (nameAndSuffix.count() > 2) {
+            throw IllegalArgumentException("Can't handle more than 1 suffix")
+        }
         val nameParts = parts(nameAndSuffix.first())
         if (isMononym(nameParts)) return name
         return "${nameParts.last()}, ${nameParts.first()}${middleInitials(nameParts)}${suffix(nameAndSuffix)}"
