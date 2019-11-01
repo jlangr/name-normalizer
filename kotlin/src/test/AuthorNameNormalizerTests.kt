@@ -37,7 +37,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `trims leading and trailing whitespace`() {
         assertThat(
