@@ -69,7 +69,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `appends suffixes to end`() {
         assertThat(
