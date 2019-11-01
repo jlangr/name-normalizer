@@ -12,9 +12,7 @@ class AuthorNameNormalizer() {
     private fun middleInitial(nameParts: List<String>): String {
         val middleNames = nameParts.drop(1).dropLast(1)
         return buildString {
-            for (middleName in middleNames) {
-                append(initialized(middleName))
-            }
+            middleNames.forEach { append(initialized(it)) }
         }
     }
 
