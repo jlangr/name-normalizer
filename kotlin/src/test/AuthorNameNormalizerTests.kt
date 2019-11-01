@@ -45,7 +45,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `initializes middle name`() {
         assertThat(
