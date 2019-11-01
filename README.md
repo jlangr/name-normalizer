@@ -29,6 +29,7 @@ Currently this repo contains implementations in the following languages:
 * C++ (gcc)
 * Clojure
 * Java
+* Kotlin (contributor: Jon Reid)
 * Objective-C (contributor: Jon Reid)
 * Swift (contributor: Jon Reid)
 
