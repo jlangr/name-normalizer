@@ -12,7 +12,11 @@ class AuthorNameNormalizer() {
     private fun middleInitial(nameParts: List<String>): String {
         if (nameParts.count() <= 2) return ""
         val middleName = nameParts[1]
-        val period = if (middleName.count() > 1) "." else ""
-        return " ${middleName.first()}$period"
+        return initialized(middleName)
+    }
+
+    private fun initialized(name: String): String {
+        val period = if (name.count() > 1) "." else ""
+        return " ${name.first()}$period"
     }
 }
