@@ -53,7 +53,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `does not initialize one letter middle name`() {
         assertThat(
