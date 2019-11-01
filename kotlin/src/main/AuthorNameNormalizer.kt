@@ -11,8 +11,12 @@ class AuthorNameNormalizer() {
 
     private fun middleInitial(nameParts: List<String>): String {
         if (nameParts.count() <= 2) return ""
-        val middleName = nameParts[1]
-        return initialized(middleName)
+        val middleNames = nameParts.drop(1).dropLast(1)
+        var result = ""
+        for (middleName in middleNames) {
+            result += initialized(middleName)
+        }
+        return result
     }
 
     private fun initialized(name: String): String {
