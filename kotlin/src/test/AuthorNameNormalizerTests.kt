@@ -29,7 +29,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `swaps first and last names`() {
         assertThat(
