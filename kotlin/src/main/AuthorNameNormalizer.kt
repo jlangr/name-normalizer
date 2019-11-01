@@ -1,10 +1,12 @@
 class AuthorNameNormalizer() {
     fun normalize(name: String): String {
-        val nameAndSuffix = name.split(",")
+        val nameAndSuffix = splitSuffix(name)
         val nameParts = parts(nameAndSuffix.first())
         if (isMononym(nameParts)) return name
         return "${nameParts.last()}, ${nameParts.first()}${middleInitials(nameParts)}${suffix(nameAndSuffix)}"
     }
+
+    private fun splitSuffix(name: String) = name.split(",")
 
     private fun suffix(nameAndSuffix: List<String>): String {
         return if (nameAndSuffix.count() == 1) "" else ",${nameAndSuffix.last()}"
