@@ -77,7 +77,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `throws when name contains two commas`() {
         assertFailsWith(IllegalArgumentException::class) {
