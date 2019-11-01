@@ -10,7 +10,6 @@ class AuthorNameNormalizer() {
     private fun isMononym(nameParts: List<String>) = nameParts.count() == 1
 
     private fun middleInitial(nameParts: List<String>): String {
-        if (nameParts.count() <= 2) return ""
         val middleNames = nameParts.drop(1).dropLast(1)
         var result = ""
         for (middleName in middleNames) {
