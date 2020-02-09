@@ -25,7 +25,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("Harry S Truman") == {:ok, "Truman, Harry S"}
   end
 
-  @tag :skip
   test "initializes each of multiple middle names" do
     assert NameNormalizer.normalize("Julia Scarlett Elizabeth Louis-Dreyfus") ==
              {:ok, "Louis-Dreyfus, Julia S. E."}
