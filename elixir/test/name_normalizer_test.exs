@@ -9,7 +9,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("Plato") == {:ok, "Plato"}
   end
 
-  @tag :skip
   test "swaps first and last names" do
     assert NameNormalizer.normalize("Haruki Murakami") == {:ok, "Murakami, Haruki"}
   end
