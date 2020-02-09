@@ -1,7 +1,6 @@
 defmodule NameNameNormalizerTest do
   use ExUnit.Case
 
-  @tag :skip
   test "returns empty string when empty" do
     assert NameNormalizer.normalize("") == {:ok, ""}
   end
