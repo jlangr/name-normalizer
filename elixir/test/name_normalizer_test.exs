@@ -13,7 +13,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("Haruki Murakami") == {:ok, "Murakami, Haruki"}
   end
 
-  @tag :skip
   test "trims leading and trailing whitespace" do
     assert NameNormalizer.normalize("  Big Boi   ") == {:ok, "Boi, Big"}
   end
