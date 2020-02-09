@@ -1,5 +1,5 @@
 defmodule NameNormalizer do
-  def normalize(_) do
-    {:ok, ""}
+  def normalize(name) do
+    {:ok, name}
   end
 end

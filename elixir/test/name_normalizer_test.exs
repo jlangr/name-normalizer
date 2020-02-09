@@ -5,7 +5,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("") == {:ok, ""}
   end
 
-  @tag :skip
   test "returns single word name" do
     assert NameNormalizer.normalize("Plato") == {:ok, "Plato"}
   end
