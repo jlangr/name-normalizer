@@ -30,7 +30,6 @@ defmodule NameNameNormalizerTest do
              {:ok, "Louis-Dreyfus, Julia S. E."}
   end
 
-  @tag :skip
   test "appends suffixes to end" do
     assert NameNormalizer.normalize("Martin Luther King, Jr.") == {:ok, "King, Martin L., Jr."}
   end

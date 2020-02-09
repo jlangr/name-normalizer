@@ -1,5 +1,13 @@
 defmodule NameNormalizer do
-  def normalize(name), do: {:ok, name |> String.split() |> handle_parts()}
+  def normalize(name) do
+    {:ok, name |> String.split(", ") |> normalize_name_and_maybe_suffix()}
+  end
+
+  defp normalize_name_and_maybe_suffix([name, suffix]) do
+    "#{normalize_name_and_maybe_suffix([name])}, #{suffix}"
+  end
+
+  defp normalize_name_and_maybe_suffix([name]), do: name |> String.split() |> handle_parts()
 
   defp handle_parts([]), do: ""
   defp handle_parts([single_name]), do: single_name
