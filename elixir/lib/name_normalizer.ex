@@ -5,6 +5,10 @@ defmodule NameNormalizer do
   defp handle_parts([single_name]), do: {:ok, single_name}
   defp handle_parts([first_name, last_name]), do: {:ok, "#{last_name}, #{first_name}"}
 
+  defp handle_parts([first_name, <<_>> = middle_initial, last_name]) do
+    {:ok, "#{last_name}, #{first_name} #{middle_initial}"}
+  end
+
   defp handle_parts([first_name, middle_name, last_name]) do
     {:ok, "#{last_name}, #{first_name} #{initial(middle_name)}."}
   end

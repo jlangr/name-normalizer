@@ -21,7 +21,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("Henry David Thoreau") == {:ok, "Thoreau, Henry D."}
   end
 
-  @tag :skip
   test "does not initialize one letter middle name" do
     assert NameNormalizer.normalize("Harry S Truman") == {:ok, "Truman, Harry S"}
   end
