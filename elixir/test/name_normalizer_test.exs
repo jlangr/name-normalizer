@@ -34,7 +34,6 @@ defmodule NameNameNormalizerTest do
     assert NameNormalizer.normalize("Martin Luther King, Jr.") == {:ok, "King, Martin L., Jr."}
   end
 
-  @tag :skip
   test "returns an error when name contains two commas" do
     assert NameNormalizer.normalize("Thurston, Howell, III") == {:error, "Too many commas"}
   end

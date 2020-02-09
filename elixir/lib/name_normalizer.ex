@@ -1,13 +1,21 @@
 defmodule NameNormalizer do
   def normalize(name) do
-    {:ok, name |> String.split(", ") |> normalize_name_and_maybe_suffix()}
+    name |> String.split(", ") |> normalize_name_and_maybe_suffix()
   end
 
   defp normalize_name_and_maybe_suffix([name, suffix]) do
-    "#{normalize_name_and_maybe_suffix([name])}, #{suffix}"
+    with {:ok, normalized_name} <- normalize_name_and_maybe_suffix([name]) do
+      {:ok, "#{normalized_name}, #{suffix}"}
+    end
   end
 
-  defp normalize_name_and_maybe_suffix([name]), do: name |> String.split() |> handle_parts()
+  defp normalize_name_and_maybe_suffix([name]) do
+    {:ok, name |> String.split() |> handle_parts()}
+  end
+
+  defp normalize_name_and_maybe_suffix(_) do
+    {:error, "Too many commas"}
+  end
 
   defp handle_parts([]), do: ""
   defp handle_parts([single_name]), do: single_name
