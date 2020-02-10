@@ -30,6 +30,7 @@ Currently this repo contains implementations in the following languages:
 * Clojure
 * Elixir (contributor: Kerry Buckley)
 * Java
+* JavaScript
 * Kotlin (contributor: Jon Reid)
 * Objective-C (contributor: Jon Reid)
 * Swift (contributor: Jon Reid)
