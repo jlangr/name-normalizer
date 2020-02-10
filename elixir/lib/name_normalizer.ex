@@ -1,0 +1,2 @@
+defmodule NameNormalizer do
+end
