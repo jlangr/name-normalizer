@@ -28,6 +28,7 @@ Currently this repo contains implementations in the following languages:
 * C#
 * C++ (gcc)
 * Clojure
+* Elixir (contributor: Kerry Buckley)
 * Java
 * Kotlin (contributor: Jon Reid)
 * Objective-C (contributor: Jon Reid)
