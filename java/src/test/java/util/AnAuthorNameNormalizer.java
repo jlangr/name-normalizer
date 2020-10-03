@@ -11,37 +11,43 @@ public class AnAuthorNameNormalizer {
     @Disabled
     @Test
     public void returnsEmptyStringWhenEmpty() {
-        assertThat(normalizer.normalize("")).isEqualTo("");
+        assertThat(normalizer.normalize(""))
+                .isEqualTo("");
     }
 
     @Disabled
     @Test
     public void returnsSingleWordName() {
-        assertThat(normalizer.normalize("Plato")).isEqualTo("Plato");
+        assertThat(normalizer.normalize("Plato"))
+                .isEqualTo("Plato");
     }
 
     @Disabled
     @Test
     public void swapsFirstAndLastNames() {
-      assertThat(normalizer.normalize("Haruki Murakami")).isEqualTo("Murakami, Haruki");
+      assertThat(normalizer.normalize("Haruki Murakami"))
+              .isEqualTo("Murakami, Haruki");
     }
 
     @Disabled
     @Test
     public void trimsLeadingAndTrailingWhitespace() {
-        assertThat(normalizer.normalize("  Big Boi   ")).isEqualTo("Boi, Big");
+        assertThat(normalizer.normalize("  Big Boi   "))
+                .isEqualTo("Boi, Big");
     }
 
     @Disabled
     @Test
     public void initializesMiddleName() {
-        assertThat(normalizer.normalize("Henry David Thoreau")).isEqualTo("Thoreau, Henry D.");
+        assertThat(normalizer.normalize("Henry David Thoreau"))
+                .isEqualTo("Thoreau, Henry D.");
     }
 
     @Disabled
     @Test
     public void doesNotInitializeOneLetterMiddleName() {
-        assertThat(normalizer.normalize("Harry S Truman")).isEqualTo("Truman, Harry S");
+        assertThat(normalizer.normalize("Harry S Truman"))
+                .isEqualTo("Truman, Harry S");
     }
 
     @Disabled
@@ -54,7 +60,8 @@ public class AnAuthorNameNormalizer {
     @Disabled
     @Test
     public void appendsSuffixesToEnd() {
-        assertThat(normalizer.normalize("Martin Luther King, Jr.")).isEqualTo("King, Martin L., Jr.");
+        assertThat(normalizer.normalize("Martin Luther King, Jr."))
+                .isEqualTo("King, Martin L., Jr.");
     }
 
     @Disabled
