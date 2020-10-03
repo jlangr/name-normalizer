@@ -17,7 +17,12 @@ public class AuthorNameNormalizer {
     }
 
     private String middleInitial() {
-        return parts[1].charAt(0) + ".";
+        return middle().charAt(0) +
+                (middle().length() == 1 ? "" : ".");
+    }
+
+    private String middle() {
+        return parts[1];
     }
 
     private boolean isDuonym() {
