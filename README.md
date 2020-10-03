@@ -38,3 +38,5 @@ Currently this repo contains implementations in the following languages:
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
 Missing your favorite language? Please send me a pull request.
+
+UPDATE: All solutions are to be stored in the all-solutions branch. Currently, solutions exist as separate branches. If you built one of these solutions, please find a few minutes to push them onto the all-solutions branch (and remove the language-specific branch).
