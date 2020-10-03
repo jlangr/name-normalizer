@@ -14,7 +14,6 @@ public class AnAuthorNameNormalizer {
                 .isEqualTo("");
     }
 
-    @Disabled
     @Test
     public void returnsSingleWordName() {
         assertThat(normalizer.normalize("Plato"))
