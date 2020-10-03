@@ -4,7 +4,7 @@ public class AuthorNameNormalizer {
     private String[] parts;
 
     public String normalize(String name) {
-        parse(name);
+        parse(name.trim());
         if (isMononym())
             return name;
         return last() + ", " + first();
