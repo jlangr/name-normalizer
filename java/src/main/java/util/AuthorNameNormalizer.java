@@ -1,22 +1,28 @@
 package util;
 
 public class AuthorNameNormalizer {
+    private String[] parts;
+
     public String normalize(String name) {
-        var parts = name.split(" ");
-        if (isMononym(parts))
+        parse(name);
+        if (isMononym())
             return name;
-        return last(parts) + ", " + first(parts);
+        return last() + ", " + first();
     }
 
-    private boolean isMononym(String[] parts) {
+    private void parse(String name) {
+        parts = name.split(" ");
+    }
+
+    private boolean isMononym() {
         return parts.length == 1;
     }
 
-    private String first(String[] parts) {
+    private String first() {
         return parts[0];
     }
 
-    private String last(String[] parts) {
+    private String last() {
         return parts[1];
     }
 }
