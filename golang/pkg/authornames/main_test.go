@@ -5,7 +5,7 @@ import (
     "testing"
 )
 
-func Test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
+func test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     expected := ""
     actual, err := authornames.Normalize("")
     if err != nil {
@@ -16,7 +16,7 @@ func Test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     }
 }
 
-func Test_ShouldReturnSingleWordName(t *testing.T) {
+func test_ShouldReturnSingleWordName(t *testing.T) {
     expected := "Plato"
     actual, err := authornames.Normalize("Plato")
     if err != nil {
@@ -27,7 +27,7 @@ func Test_ShouldReturnSingleWordName(t *testing.T) {
     }
 }
 
-func Test_ShouldSwapFirstAndLastNames(t *testing.T) {
+func test_ShouldSwapFirstAndLastNames(t *testing.T) {
     expected := "Murakami, Haruki"
     actual, err := authornames.Normalize("Haruki Murakami")
     if err != nil {
@@ -38,7 +38,7 @@ func Test_ShouldSwapFirstAndLastNames(t *testing.T) {
     }
 }
 
-func Test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
+func test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
     expected := "Boi, Big"
     actual, err := authornames.Normalize("  Big Boi   ")
     if err != nil {
@@ -49,7 +49,7 @@ func Test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
     }
 }
 
-func Test_ShouldInitializeMiddleName(t *testing.T) {
+func test_ShouldInitializeMiddleName(t *testing.T) {
     expected := "Thoreau, Henry D."
     actual, err := authornames.Normalize("Henry David Thoreau")
     if err != nil {
@@ -60,7 +60,7 @@ func Test_ShouldInitializeMiddleName(t *testing.T) {
     }
 }
 
-func Test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) {
+func test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) {
     expected := "Truman, Harry S"
     actual, err := authornames.Normalize("Harry S Truman")
     if err != nil {
@@ -71,7 +71,7 @@ func Test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) 
     }
 }
 
-func Test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
+func test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
     expected := "Louis-Dreyfus, Julia S. E."
     actual, err := authornames.Normalize("Julia Scarlett Elizabeth Louis-Dreyfus")
     if err != nil {
@@ -82,7 +82,7 @@ func Test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
     }
 }
 
-func Test_ShouldAppendSuffixesToEnd(t *testing.T) {
+func test_ShouldAppendSuffixesToEnd(t *testing.T) {
     expected := "King, Martin L., Jr."
     actual, err := authornames.Normalize("Martin Luther King, Jr.")
     if err != nil {
@@ -93,7 +93,7 @@ func Test_ShouldAppendSuffixesToEnd(t *testing.T) {
     }
 }
 
-func Test_ShouldReturnAnError_WhenNameContainsTwoCommas(t *testing.T) {
+func test_ShouldReturnAnError_WhenNameContainsTwoCommas(t *testing.T) {
     _, err := authornames.Normalize("Thurston, Howell, III")
     if err == nil {
         t.Fatal("expected an error, but nothing went wrong ...")
