@@ -12,10 +12,14 @@ public class AuthorNameNormalizer {
     public String normalize(String name) {
         parse(name.trim());
         if (isMononym())
-            return trimmedName;
+            return formatMononym();
         if (isDuonym())
             return formatDuonym();
         return formatMultiPartName();
+    }
+
+    private String formatMononym() {
+        return trimmedName;
     }
 
     private String formatMultiPartName() {
@@ -36,7 +40,7 @@ public class AuthorNameNormalizer {
     }
 
     private String formatDuonym() {
-        return last() + ", " + first();
+        return last() + ", " + first() + suffix();
     }
 
     private boolean isDuonym() {

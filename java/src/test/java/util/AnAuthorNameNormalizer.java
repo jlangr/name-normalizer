@@ -56,6 +56,18 @@ public class AnAuthorNameNormalizer {
                 .isEqualTo("King, Martin L., Jr.");
     }
 
+    @Test
+    public void appendsSuffixesToEndOfDuonym() {
+        assertThat(normalizer.normalize("Haruki Murakami, Esq."))
+                .isEqualTo("Murakami, Haruki, Esq.");
+    }
+
+    @Test
+    public void appendsSuffixesToEndOfMononym() {
+        assertThat(normalizer.normalize("Madonna, Jr."))
+                .isEqualTo("Madonna, Jr.");
+    }
+
     @Disabled
     @Test
     public void throwsWhenNameContainsTwoCommas() {
