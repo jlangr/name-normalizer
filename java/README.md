@@ -1,3 +1,9 @@
-This is a Gradle project. I was able to successfully load it into IntelliJ IDEA using its defaults. Eclipse, who knows, it won't even start on me at this point, but it should similarly work using the Gradle Buildship plugin.
+This is a Gradle project, currently using Java 14, AssertJ for assertions, and JUnit 5.
 
-Worst case, it's only two source files, and you could consider creating the project from scratch if you have any issues.
+IntelliJ IDEA note:
+
+In IDEA, if you receive an error similar to:
+
+    Could not target platform: 'Java 14' using tool chain: 'JDK 7 (1.8)'
+    
+...navigate to the Properties (Settings) dialog, search for Gradle, and change the Gradle JVM appropriately.
