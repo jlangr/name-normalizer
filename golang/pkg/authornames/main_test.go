@@ -5,6 +5,11 @@ import (
     "testing"
 )
 
+// To enable a test just change the first letter of the test function to upper case,
+// so that your function's name begins with 'Test'.
+//
+// To run the tests run 'go test ./pkg/authornames/' in the terminal.
+
 func test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     expected := ""
     actual, err := authornames.Normalize("")
