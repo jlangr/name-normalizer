@@ -2,18 +2,16 @@ buildscript {
   repositories {
     mavenCentral()
   }
-  dependencies {
-    classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.3'
-  }
+
   ext {
     javaVersion = 14
   }
 }
 
 apply plugin: 'java'
-apply plugin: 'org.junit.platform.gradle.plugin'
 
 sourceCompatibility = "${javaVersion}"
+targetCompatibility = "${javaVersion}"
 
 repositories {
   mavenCentral()
@@ -21,6 +19,14 @@ repositories {
 
 dependencies {
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-  testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
   testImplementation 'org.assertj:assertj-core:3.17.2'
+}
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    exceptionFormat = 'full'
+  }
 }
