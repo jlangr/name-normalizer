@@ -1,14 +1,14 @@
 package authornames_test
 
 import (
-    "github.com/jlangr/name-normalizer/golang/pkg/authornames"
+    authornames "github.com/jlangr/name-normalizer/golang"
     "testing"
 )
 
 // To enable a test just change the first letter of the test function to upper case,
 // so that your function's name begins with 'Test'.
 //
-// To run the tests run 'go test ./pkg/authornames/' in the terminal.
+// To run the tests just run 'go test' in the terminal.
 
 func test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     expected := ""
