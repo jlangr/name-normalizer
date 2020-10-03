@@ -48,9 +48,19 @@ public class AuthorNameNormalizer {
     }
 
     private void parse(String name) {
+        throwOnExcessCommas(name);
         trimmedName = name;
         deriveBaseNameAndSuffix();
         parts = baseName.split(" ");
+    }
+
+    private void throwOnExcessCommas(String name) {
+        if (count(name, ',') > 1)
+            throw new IllegalArgumentException("too many commas");
+    }
+
+    long count(String string, char c) {
+        return string.chars().filter(ch -> ch == c).count();
     }
 
     private void deriveBaseNameAndSuffix() {

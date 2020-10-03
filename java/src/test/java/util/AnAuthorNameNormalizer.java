@@ -68,7 +68,6 @@ public class AnAuthorNameNormalizer {
                 .isEqualTo("Madonna, Jr.");
     }
 
-    @Disabled
     @Test
     public void throwsWhenNameContainsTwoCommas() {
         assertThatThrownBy(() -> {
