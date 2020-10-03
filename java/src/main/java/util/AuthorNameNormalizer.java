@@ -7,7 +7,21 @@ public class AuthorNameNormalizer {
         parse(name.trim());
         if (isMononym())
             return name;
-        return formatDuonym();
+        if (isDuonym())
+            return formatDuonym();
+        return formatMultiPartName();
+    }
+
+    private String formatMultiPartName() {
+        return last() + ", " + first() +  " " + middleInitial();
+    }
+
+    private String middleInitial() {
+        return parts[1].charAt(0) + ".";
+    }
+
+    private boolean isDuonym() {
+        return parts.length == 2;
     }
 
     private String formatDuonym() {
@@ -27,6 +41,6 @@ public class AuthorNameNormalizer {
     }
 
     private String last() {
-        return parts[1];
+        return parts[parts.length - 1];
     }
 }

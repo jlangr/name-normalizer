@@ -32,7 +32,6 @@ public class AnAuthorNameNormalizer {
                 .isEqualTo("Boi, Big");
     }
 
-    @Disabled
     @Test
     public void initializesMiddleName() {
         assertThat(normalizer.normalize("Henry David Thoreau"))
