@@ -50,7 +50,6 @@ public class AnAuthorNameNormalizer {
                 .isEqualTo("Louis-Dreyfus, Julia S. E.");
     }
 
-    @Disabled
     @Test
     public void appendsSuffixesToEnd() {
         assertThat(normalizer.normalize("Martin Luther King, Jr."))

@@ -5,18 +5,21 @@ import java.util.stream.Collectors;
 
 public class AuthorNameNormalizer {
     private String[] parts;
+    private String trimmedName;
+    private String baseName;
+    private String suffix;
 
     public String normalize(String name) {
         parse(name.trim());
         if (isMononym())
-            return name;
+            return trimmedName;
         if (isDuonym())
             return formatDuonym();
         return formatMultiPartName();
     }
 
     private String formatMultiPartName() {
-        return last() + ", " + first() +  " " + middleInitials();
+        return last() + ", " + first() + " " + middleInitials() + suffix();
     }
 
     private String middleInitials() {
@@ -26,7 +29,6 @@ public class AuthorNameNormalizer {
                 .map(this::initial)
                 .collect(Collectors.joining(" "));
     }
-
 
     private String initial(String name) {
         return name.charAt(0) +
@@ -42,7 +44,16 @@ public class AuthorNameNormalizer {
     }
 
     private void parse(String name) {
-        parts = name.split(" ");
+        trimmedName = name;
+        deriveBaseNameAndSuffix();
+        parts = baseName.split(" ");
+    }
+
+    private void deriveBaseNameAndSuffix() {
+        var parts = trimmedName.split(",");
+        baseName = parts[0];
+        if (parts.length == 2)
+            suffix = parts[1];
     }
 
     private boolean isMononym() {
@@ -55,5 +66,11 @@ public class AuthorNameNormalizer {
 
     private String last() {
         return parts[parts.length - 1];
+    }
+
+    private String suffix() {
+        if (suffix == null)
+            return "";
+        return "," + suffix;
     }
 }
