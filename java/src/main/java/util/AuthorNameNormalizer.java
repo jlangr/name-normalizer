@@ -7,6 +7,10 @@ public class AuthorNameNormalizer {
         parse(name.trim());
         if (isMononym())
             return name;
+        return formatDuonym();
+    }
+
+    private String formatDuonym() {
         return last() + ", " + first();
     }
 
