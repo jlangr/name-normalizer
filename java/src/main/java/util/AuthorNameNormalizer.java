@@ -1,5 +1,8 @@
 package util;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class AuthorNameNormalizer {
     private String[] parts;
 
@@ -13,24 +16,29 @@ public class AuthorNameNormalizer {
     }
 
     private String formatMultiPartName() {
-        return last() + ", " + first() +  " " + middleInitial();
+        return last() + ", " + first() +  " " + middleInitials();
     }
 
-    private String middleInitial() {
-        return middle().charAt(0) +
-                (middle().length() == 1 ? "" : ".");
+    private String middleInitials() {
+        return Arrays.stream(parts)
+                .skip(1)
+                .limit(parts.length - 2)
+                .map(this::initial)
+                .collect(Collectors.joining(" "));
     }
 
-    private String middle() {
-        return parts[1];
-    }
 
-    private boolean isDuonym() {
-        return parts.length == 2;
+    private String initial(String name) {
+        return name.charAt(0) +
+                (name.length() == 1 ? "" : ".");
     }
 
     private String formatDuonym() {
         return last() + ", " + first();
+    }
+
+    private boolean isDuonym() {
+        return parts.length == 2;
     }
 
     private void parse(String name) {
