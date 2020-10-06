@@ -32,7 +32,7 @@ func Test_ShouldReturnSingleWordName(t *testing.T) {
     }
 }
 
-func test_ShouldSwapFirstAndLastNames(t *testing.T) {
+func Test_ShouldSwapFirstAndLastNames(t *testing.T) {
     expected := "Murakami, Haruki"
     actual, err := authornames.Normalize("Haruki Murakami")
     if err != nil {
