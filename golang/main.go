@@ -34,18 +34,26 @@ func convertToInitializedFormat(name string) string {
 }
 
 func determineMiddleName(parts []string) string {
-    if len(parts) == 3 {
-        return parts[1]
+    if parts == nil || len(parts) < 3 {
+        return ""
     }
 
-    return ""
+    return parts[1]
 }
 
 func determineLastName(parts []string) string {
+    if parts == nil || len(parts) == 0 {
+        return ""
+    }
+
     return parts[len(parts)-1]
 }
 
 func determineFirstName(parts []string) string {
+    if parts == nil || len(parts) == 0 {
+        return ""
+    }
+
     return parts[0]
 }
 
