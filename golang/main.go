@@ -4,6 +4,30 @@ import (
     "strings"
 )
 
+type authorName struct {
+    firstName  string
+    middleName string
+    lastName   string
+}
+
+func (n authorName) getMiddleNameAsInitializedString() string {
+    if n.middleName == "" {
+        return ""
+    }
+
+    return string(n.middleName[0]) + "."
+}
+
+func (n authorName) String() string {
+    result := n.lastName + ", " + n.firstName
+
+    if n.middleName != "" {
+        result += " " + n.getMiddleNameAsInitializedString()
+    }
+
+    return result
+}
+
 func Normalize(s string) (string, error) {
     s = strings.TrimSpace(s)
 
@@ -11,26 +35,19 @@ func Normalize(s string) (string, error) {
         return s, nil
     }
 
-    parts := strings.Split(s, " ")
-    firstName := determineFirstName(parts)
-    middleName := determineMiddleName(parts)
-    middleName = convertToInitializedFormat(middleName)
-    lastName := determineLastName(parts)
+    name := parseAuthorName(s)
 
-    result := lastName + ", " + firstName
-    if middleName != "" {
-        result += " " + middleName
-    }
-
-    return result, nil
+    return name.String(), nil
 }
 
-func convertToInitializedFormat(name string) string {
-    if name == "" {
-        return ""
-    }
+func parseAuthorName(s string) authorName {
+    parts := strings.Split(s, " ")
 
-    return string(name[0]) + "."
+    return authorName{
+        firstName:  determineFirstName(parts),
+        middleName: determineMiddleName(parts),
+        lastName:   determineLastName(parts),
+    }
 }
 
 func determineMiddleName(parts []string) string {
