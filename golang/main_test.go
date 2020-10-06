@@ -54,7 +54,7 @@ func Test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
     }
 }
 
-func test_ShouldInitializeMiddleName(t *testing.T) {
+func Test_ShouldInitializeMiddleName(t *testing.T) {
     expected := "Thoreau, Henry D."
     actual, err := authornames.Normalize("Henry David Thoreau")
     if err != nil {
