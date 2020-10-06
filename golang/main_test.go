@@ -21,7 +21,7 @@ func Test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     }
 }
 
-func test_ShouldReturnSingleWordName(t *testing.T) {
+func Test_ShouldReturnSingleWordName(t *testing.T) {
     expected := "Plato"
     actual, err := authornames.Normalize("Plato")
     if err != nil {
