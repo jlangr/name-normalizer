@@ -10,7 +10,7 @@ import (
 //
 // To run the tests just run 'go test' in the terminal.
 
-func test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
+func Test_ShouldReturnEmptyString_WhenNameIsEmpty(t *testing.T) {
     expected := ""
     actual, err := authornames.Normalize("")
     if err != nil {
