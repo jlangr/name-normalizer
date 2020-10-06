@@ -65,7 +65,7 @@ func Test_ShouldInitializeMiddleName(t *testing.T) {
     }
 }
 
-func test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) {
+func Test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) {
     expected := "Truman, Harry S"
     actual, err := authornames.Normalize("Harry S Truman")
     if err != nil {

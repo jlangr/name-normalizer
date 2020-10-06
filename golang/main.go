@@ -15,6 +15,10 @@ func (n authorName) getMiddleNameAsInitializedString() string {
         return ""
     }
 
+    if len(n.middleName) == 1 {
+        return n.middleName
+    }
+
     return string(n.middleName[0]) + "."
 }
 
