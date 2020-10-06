@@ -5,6 +5,8 @@ import (
 )
 
 func Normalize(s string) (string, error) {
+    s = strings.TrimSpace(s)
+
     if isSingleWordName(s) {
         return s, nil
     }

@@ -43,7 +43,7 @@ func Test_ShouldSwapFirstAndLastNames(t *testing.T) {
     }
 }
 
-func test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
+func Test_ShouldTrimLeadingAndTrailingWhitespaces(t *testing.T) {
     expected := "Boi, Big"
     actual, err := authornames.Normalize("  Big Boi   ")
     if err != nil {
