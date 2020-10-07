@@ -98,7 +98,7 @@ func Test_ShouldAppendSuffixesToEnd(t *testing.T) {
     }
 }
 
-func test_ShouldReturnAnError_WhenNameContainsTwoCommas(t *testing.T) {
+func Test_ShouldReturnAnError_WhenNameContainsTwoCommas(t *testing.T) {
     _, err := authornames.Normalize("Thurston, Howell, III")
     if err == nil {
         t.Fatal("expected an error, but nothing went wrong ...")

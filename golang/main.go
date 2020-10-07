@@ -1,6 +1,7 @@
 package authornames
 
 import (
+    "fmt"
     "strings"
 )
 
@@ -42,6 +43,10 @@ func (n authorName) String() string {
 }
 
 func Normalize(s string) (string, error) {
+    if strings.Count(s, ",") > 1 {
+        return "", fmt.Errorf("there are too much commas in '%v'", s)
+    }
+
     s = strings.TrimSpace(s)
 
     if isSingleWordName(s) {
