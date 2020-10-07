@@ -8,6 +8,7 @@ type authorName struct {
     firstName   string
     middleNames []string
     lastName    string
+    suffix      string
 }
 
 func (n authorName) getMiddleNamesAsInitializedString() string {
@@ -33,6 +34,9 @@ func (n authorName) String() string {
     if n.middleNames != nil && len(n.middleNames) > 0 {
         result += " " + n.getMiddleNamesAsInitializedString()
     }
+    if n.suffix != "" {
+        result += ", " + n.suffix
+    }
 
     return result
 }
@@ -50,12 +54,20 @@ func Normalize(s string) (string, error) {
 }
 
 func parseAuthorName(s string) authorName {
+    suffix := ""
+    if strings.Contains(s, ",") {
+        parts := strings.Split(s, ",")
+        suffix = strings.TrimSpace(parts[1])
+        s = strings.TrimSpace(parts[0])
+    }
+
     parts := strings.Split(s, " ")
 
     return authorName{
         firstName:   determineFirstName(parts),
         middleNames: determineMiddleNames(parts),
         lastName:    determineLastName(parts),
+        suffix:      suffix,
     }
 }
 

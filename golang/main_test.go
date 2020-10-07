@@ -87,7 +87,7 @@ func Test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
     }
 }
 
-func test_ShouldAppendSuffixesToEnd(t *testing.T) {
+func Test_ShouldAppendSuffixesToEnd(t *testing.T) {
     expected := "King, Martin L., Jr."
     actual, err := authornames.Normalize("Martin Luther King, Jr.")
     if err != nil {
