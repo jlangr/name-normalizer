@@ -5,28 +5,33 @@ import (
 )
 
 type authorName struct {
-    firstName  string
-    middleName string
-    lastName   string
+    firstName   string
+    middleNames []string
+    lastName    string
 }
 
-func (n authorName) getMiddleNameAsInitializedString() string {
-    if n.middleName == "" {
+func (n authorName) getMiddleNamesAsInitializedString() string {
+    if n.middleNames == nil || len(n.middleNames) == 0 {
         return ""
     }
 
-    if len(n.middleName) == 1 {
-        return n.middleName
+    result := ""
+    for _, v := range n.middleNames {
+        if len(v) == 1 {
+            result += v + " "
+        } else {
+            result += string(v[0]) + ". "
+        }
     }
 
-    return string(n.middleName[0]) + "."
+    return strings.TrimSpace(result)
 }
 
 func (n authorName) String() string {
     result := n.lastName + ", " + n.firstName
 
-    if n.middleName != "" {
-        result += " " + n.getMiddleNameAsInitializedString()
+    if n.middleNames != nil && len(n.middleNames) > 0 {
+        result += " " + n.getMiddleNamesAsInitializedString()
     }
 
     return result
@@ -48,18 +53,18 @@ func parseAuthorName(s string) authorName {
     parts := strings.Split(s, " ")
 
     return authorName{
-        firstName:  determineFirstName(parts),
-        middleName: determineMiddleName(parts),
-        lastName:   determineLastName(parts),
+        firstName:   determineFirstName(parts),
+        middleNames: determineMiddleNames(parts),
+        lastName:    determineLastName(parts),
     }
 }
 
-func determineMiddleName(parts []string) string {
+func determineMiddleNames(parts []string) []string {
     if parts == nil || len(parts) < 3 {
-        return ""
+        return nil
     }
 
-    return parts[1]
+    return parts[1 : len(parts)-1]
 }
 
 func determineLastName(parts []string) string {

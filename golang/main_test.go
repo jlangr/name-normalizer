@@ -76,7 +76,7 @@ func Test_ShouldNotInitializeMiddleName_WhenMiddleNameIsOneLetter(t *testing.T) 
     }
 }
 
-func test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
+func Test_ShouldInitializeEachOfMultipleMiddleNames(t *testing.T) {
     expected := "Louis-Dreyfus, Julia S. E."
     actual, err := authornames.Normalize("Julia Scarlett Elizabeth Louis-Dreyfus")
     if err != nil {
