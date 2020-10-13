@@ -43,22 +43,25 @@ func (n authorName) String() string {
 }
 
 func Normalize(s string) (string, error) {
-	if strings.Count(s, ",") > 1 {
-		return "", fmt.Errorf("there are too much commas in '%v'", s)
-	}
-
 	s = strings.TrimSpace(s)
 
 	if isSingleWordName(s) {
 		return s, nil
 	}
 
-	name := parseAuthorName(s)
+	name, err := parseAuthorName(s)
+	if err != nil {
+		return "", err
+	}
 
 	return name.String(), nil
 }
 
-func parseAuthorName(s string) authorName {
+func parseAuthorName(s string) (*authorName, error) {
+	if strings.Count(s, ",") > 1 {
+		return nil, fmt.Errorf("there are too much commas in '%v'", s)
+	}
+
 	suffix := ""
 	if strings.Contains(s, ",") {
 		parts := strings.Split(s, ",")
@@ -68,12 +71,12 @@ func parseAuthorName(s string) authorName {
 
 	parts := strings.Split(s, " ")
 
-	return authorName{
+	return &authorName{
 		firstName:   determineFirstName(parts),
 		middleNames: determineMiddleNames(parts),
 		lastName:    determineLastName(parts),
 		suffix:      suffix,
-	}
+	}, nil
 }
 
 func determineMiddleNames(parts []string) []string {
