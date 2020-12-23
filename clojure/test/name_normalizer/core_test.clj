@@ -3,7 +3,7 @@
             [name-normalizer.core :refer :all]))
 
 (deftest a-name-normalizer
-  #_(testing "returns empty string when passed an empty string"
+  (testing "returns empty string when passed an empty string"
     (is (= "" (normalize ""))))
   #_(testing "returns single word name"
     (is (= "Plato" (normalize "Plato"))))

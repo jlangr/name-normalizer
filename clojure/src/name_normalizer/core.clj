@@ -1,3 +1,3 @@
 (ns name-normalizer.core)
 
-(defn normalize [name])
+(defn normalize [name] nil)
