@@ -18,4 +18,4 @@ default this is set to `/usr/local`. For example
 
 Run the bash script that builds and executes the tests:
 
-    ./test
+    ./run
