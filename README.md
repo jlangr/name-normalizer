@@ -31,7 +31,7 @@ Currently this repo contains implementations in the following languages:
 * Elixir (contributor: Kerry Buckley)
 * Java (contributor: Jeff Langr)
 * JavaScript (contributor: Jeff Langr)
-* Kotlin (contributor: Jon Reid) (solution is in kotlin-solution branch)
+* Kotlin (contributor: Jon Reid)
 * Objective-C (contributor: Jon Reid) (solution is in objc-solution branch)
 * Ruby (contributor: Jeff Langr)
 * Swift (contributor: Jon Reid) (solution is in swift-solution branch)
