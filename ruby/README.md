@@ -1,0 +1,1 @@
+Ruby exercise using RSpec
