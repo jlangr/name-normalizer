@@ -6,7 +6,7 @@ using namespace testing;
 using namespace std;
 using namespace name_util;
 
-TEST(ANameNormalizer, DISABLED_ReturnsAnEmptyStringWhenGivenSame) {
+TEST(ANameNormalizer, ReturnsAnEmptyStringWhenGivenSame) {
     ASSERT_THAT(normalize(""), StrEq(""));
 }
 
