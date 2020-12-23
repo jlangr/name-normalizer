@@ -13,7 +13,6 @@ class AuthorNameNormalizerTests {
         normalizer = AuthorNameNormalizer()
     }
 
-    @Ignore
     @Test
     fun `returns empty string when empty`() {
         assertThat(
@@ -22,7 +21,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `returns single word name`() {
         assertThat(
@@ -31,7 +29,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `swaps first and last names`() {
         assertThat(
@@ -40,7 +37,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `trims leading and trailing whitespace`() {
         assertThat(
@@ -49,7 +45,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `initializes middle name`() {
         assertThat(
@@ -58,7 +53,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `does not initialize one letter middle name`() {
         assertThat(
@@ -67,7 +61,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `initializes each of multiple middle names`() {
         assertThat(
@@ -76,7 +69,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `appends suffixes to end`() {
         assertThat(
@@ -85,7 +77,6 @@ class AuthorNameNormalizerTests {
         )
     }
 
-    @Ignore
     @Test
     fun `throws when name contains two commas`() {
         assertFailsWith(IllegalArgumentException::class) {
