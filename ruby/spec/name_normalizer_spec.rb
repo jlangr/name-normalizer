@@ -1,4 +1,4 @@
-require "../lib/name_normalizer"
+require "./lib/name_normalizer"
 
 describe NameNormalizer do
   let(:normalizer) { NameNormalizer.new }
