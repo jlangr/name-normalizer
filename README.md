@@ -25,14 +25,15 @@ Here is the complete set of instructions:
 
 Currently this repo contains implementations in the following languages:
 
-* C#
-* C++ (gcc)
-* Clojure
+* C# (contributor: Jeff Langr)
+* C++ (gcc) (contributor: Jeff Langr)
+* Clojure (contributor: Jeff Langr)
 * Elixir (contributor: Kerry Buckley)
-* Java
-* JavaScript
+* Java (contributor: Jeff Langr)
+* JavaScript (contributor: Jeff Langr)
 * Kotlin (contributor: Jon Reid)
 * Objective-C (contributor: Jon Reid)
+* Ruby (contributor: Jeff Langr)
 * Swift (contributor: Jon Reid)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
