@@ -1,6 +1,6 @@
 # Name Normalizer: C++ version (gcc)
 
-This project includes the latest distribution of googletest.
+This project includes a distribution of googletest.
 
 # Building
 
