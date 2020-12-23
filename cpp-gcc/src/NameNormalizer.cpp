@@ -4,4 +4,7 @@
 #include "NameNormalizer.h"
 
 
+// code is header-only
+
+
 #endif
