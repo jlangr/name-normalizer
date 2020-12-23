@@ -26,7 +26,7 @@ Here is the complete set of instructions:
 Currently this repo contains implementations in the following languages:
 
 * C# (contributor: Jeff Langr)
-* C++ (gcc) (contributor: Jeff Langr) (solution is in cpp-gcc-soln branch)
+* C++ (gcc) (contributor: Jeff Langr)
 * Clojure (contributor: Jeff Langr)
 * Elixir (contributor: Kerry Buckley)
 * Java (contributor: Jeff Langr)
