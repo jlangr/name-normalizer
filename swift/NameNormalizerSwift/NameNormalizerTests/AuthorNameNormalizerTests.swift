@@ -3,39 +3,39 @@ import XCTest
 
 class AuthorNameNormalizerTests: XCTestCase {
 
-    func DISABLED_testReturnsEmptyStringWhenEmpty() {
+    func testReturnsEmptyStringWhenEmpty() {
         XCTAssertEqual(try normalize(name: ""), "")
     }
 
-    func DISABLED_testReturnsSingleWordName() {
+    func testReturnsSingleWordName() {
         XCTAssertEqual(try normalize(name: "Plato"), "Plato")
     }
 
-    func DISABLED_testSwapsFirstAndLastNames() {
+    func testSwapsFirstAndLastNames() {
         XCTAssertEqual(try normalize(name: "Haruki Murakami"), "Murakami, Haruki")
     }
 
-    func DISABLED_testTrimsLeadingAndTrailingWhitespace() {
+    func testTrimsLeadingAndTrailingWhitespace() {
         XCTAssertEqual(try normalize(name: "  Big Boi   "), "Boi, Big")
     }
 
-    func DISABLED_testInitializesMiddleName() {
+    func testInitializesMiddleName() {
         XCTAssertEqual(try normalize(name: "Henry David Thoreau"), "Thoreau, Henry D.")
     }
 
-    func DISABLED_testDoesNotInitializeOneLetterMiddleName() {
+    func testDoesNotInitializeOneLetterMiddleName() {
         XCTAssertEqual(try normalize(name: "Harry S Truman"), "Truman, Harry S")
     }
 
-    func DISABLED_testInitializesEachOfMultipleMiddleNames() {
+    func testInitializesEachOfMultipleMiddleNames() {
         XCTAssertEqual(try normalize(name: "Julia Scarlett Elizabeth Louis-Dreyfus"), "Louis-Dreyfus, Julia S. E.")
     }
 
-    func DISABLED_testAppendsSuffixesToEnd() {
+    func testAppendsSuffixesToEnd() {
         XCTAssertEqual(try normalize(name: "Martin Luther King, Jr."), "King, Martin L., Jr.")
     }
 
-    func DISABLED_testThrowsWhenNameContainsTwoCommas() {
+    func testThrowsWhenNameContainsTwoCommas() {
         XCTAssertThrowsError(try normalize(name: "Thurston, Howell, III"))
     }
 }
