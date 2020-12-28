@@ -23,21 +23,19 @@ Here is the complete set of instructions:
 1. If there is a second commented-out assertion in any test (very rare!), uncomment it. It should fail. If not, return to step 5.
 1. Repeat prior steps until no more test methods exist.
 
-Currently this repo contains implementations in the following languages:
+Currently this repo contains implementations in the following languages (contributor in parentheses):
 
-* C# (contributor: Jeff Langr)
-* C++ (gcc) (contributor: Jeff Langr)
-* Clojure (contributor: Jeff Langr)
-* Elixir (contributor: Kerry Buckley)
-* Java (contributor: Jeff Langr)
-* JavaScript (contributor: Jeff Langr)
-* Kotlin (contributor: Jon Reid)
-* Objective-C (contributor: Jon Reid) (solution is in objc-solution branch)
-* Ruby (contributor: Jeff Langr)
-* Swift (contributor: Jon Reid) (solution is in swift-solution branch)
+* C# (Jeff Langr)
+* C++ (gcc) (Jeff Langr)
+* Clojure (Jeff Langr)
+* Elixir (Kerry Buckley)
+* Java (Jeff Langr)
+* JavaScript (Jeff Langr)
+* Kotlin (Jon Reid)
+* Objective-C (Jon Reid)
+* Ruby (Jeff Langr)
+* Swift (Jon Reid)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
-Missing your favorite language? Please send me a pull request.
-
-UPDATE: All solutions are to be stored in the all-solutions branch. Currently, solutions exist as separate branches. If you built one of these solutions, please find a few minutes to push them onto the all-solutions branch (and remove the language-specific branch).
+Missing your favorite language? Please send me a pull request if you're able to supply at least the starter code. (I might be able to put together a few more myself, including Go, Groovy, Python, Rust, Smalltalk and Scala, though I could use a pair since these aren't languages I use often anymore.)
