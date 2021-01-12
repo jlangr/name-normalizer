@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbb926ed-fde6-42ab-bc9d-e8a0d9f6849e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/AuthorNameNormalizerTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AuthorNameNormalizerTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AuthorNameNormalizerTests.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

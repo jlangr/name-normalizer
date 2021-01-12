@@ -13,6 +13,7 @@ class AuthorNameNormalizerTests {
         normalizer = AuthorNameNormalizer()
     }
 
+    @Ignore
     @Test
     fun `returns empty string when empty`() {
         assertThat(
