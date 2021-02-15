@@ -6,7 +6,6 @@ defmodule NameNormalizer do
     (with {:ok, normalized_name} <- normalize_name_and_maybe_suffix([name]) do
       {:ok, "#{normalized_name}, #{suffix}"}
     end)
-
   defp normalize_name_and_maybe_suffix([name]), do:
     {:ok, name |> String.split |> handle_parts }
   defp normalize_name_and_maybe_suffix(_), do:
