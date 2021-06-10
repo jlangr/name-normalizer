@@ -21,48 +21,57 @@
     [super tearDown];
 }
 
-- (void)DISABLED_testReturnsEmptyStringWhenEmpty
+- (void)testReturnsEmptyStringWhenEmpty
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@""], @"");
 }
 
-- (void)DISABLED_testReturnsSingleWordName
+- (void)testReturnsSingleWordName
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Plato"], @"Plato");
 }
 
-- (void)DISABLED_testSwapsFirstAndLastNames
+- (void)testSwapsFirstAndLastNames
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Haruki Murakami"], @"Murakami, Haruki");
 }
 
-- (void)DISABLED_testTrimsLeadingAndTrailingWhitespace
+- (void)testTrimsLeadingAndTrailingWhitespace
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"  Big Boi   "], @"Boi, Big");
 }
 
-- (void)DISABLED_testInitializesMiddleName
+- (void)testInitializesMiddleName
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Henry David Thoreau"], @"Thoreau, Henry D.");
 }
 
-- (void)DISABLED_testDoesNotInitializeOneLetterMiddleName
+- (void)testDoesNotInitializeOneLetterMiddleName
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Harry S Truman"], @"Truman, Harry S");
 }
 
-- (void)DISABLED_testInitializesEachOfMultipleMiddleNames
+- (void)testInitializesEachOfMultipleMiddleNames
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Julia Scarlett Elizabeth Louis-Dreyfus"], @"Louis-Dreyfus, Julia S. E.");
 }
 
-- (void)DISABLED_testAppendsSuffixesToEnd
+- (void)testAppendsSuffixesToEnd
 {
+    XCTSkip(@"disabled");
     XCTAssertEqualObjects([normalizer normalize:@"Martin Luther King, Jr."], @"King, Martin L., Jr.");
 }
 
-- (void)DISABLED_testThrowsWhenNameContainsTwoCommas
+- (void)testThrowsWhenNameContainsTwoCommas
 {
+    XCTSkip(@"disabled");
     XCTAssertThrows([normalizer normalize:@"Thurston, Howell, III"]);
 }
 
