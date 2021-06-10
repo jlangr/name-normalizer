@@ -3,39 +3,48 @@ import XCTest
 
 class AuthorNameNormalizerTests: XCTestCase {
 
-    func DISABLED_testReturnsEmptyStringWhenEmpty() {
+    func testReturnsEmptyStringWhenEmpty() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: ""), "")
     }
 
-    func DISABLED_testReturnsSingleWordName() {
+    func testReturnsSingleWordName() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Plato"), "Plato")
     }
 
-    func DISABLED_testSwapsFirstAndLastNames() {
+    func testSwapsFirstAndLastNames() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Haruki Murakami"), "Murakami, Haruki")
     }
 
-    func DISABLED_testTrimsLeadingAndTrailingWhitespace() {
+    func testTrimsLeadingAndTrailingWhitespace() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "  Big Boi   "), "Boi, Big")
     }
 
-    func DISABLED_testInitializesMiddleName() {
+    func testInitializesMiddleName() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Henry David Thoreau"), "Thoreau, Henry D.")
     }
 
-    func DISABLED_testDoesNotInitializeOneLetterMiddleName() {
+    func testDoesNotInitializeOneLetterMiddleName() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Harry S Truman"), "Truman, Harry S")
     }
 
-    func DISABLED_testInitializesEachOfMultipleMiddleNames() {
+    func testInitializesEachOfMultipleMiddleNames() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Julia Scarlett Elizabeth Louis-Dreyfus"), "Louis-Dreyfus, Julia S. E.")
     }
 
-    func DISABLED_testAppendsSuffixesToEnd() {
+    func testAppendsSuffixesToEnd() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertEqual(try normalize(name: "Martin Luther King, Jr."), "King, Martin L., Jr.")
     }
 
-    func DISABLED_testThrowsWhenNameContainsTwoCommas() {
+    func testThrowsWhenNameContainsTwoCommas() throws {
+        try XCTSkipIf(true, "disabled")
         XCTAssertThrowsError(try normalize(name: "Thurston, Howell, III"))
     }
 }
