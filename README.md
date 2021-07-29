@@ -9,7 +9,7 @@ This is a great introductory way to learn about the incremental growth aspect of
 The primary things to focus on:
 
 * Write no more code than needed to pass a test.
-* If the test passes immediately, it's likely you wrote too much code in a prior step. (Or maybe you just forgot something silly, such as not compiling things.) If so, go back to the the *beginning of the prior step.* Discard that effort, and think hard about a smaller implementation that would meet only the needs of the current set of tests.
+* If the test passes immediately, it's likely you wrote too much code in a prior step. (Or maybe you just forgot something silly, such as not compiling things.) If so, go back to the *beginning of the prior step.* Discard that effort, and think hard about a smaller implementation that would meet only the needs of the current set of tests.
 * Refactor, refactor, refactor. With each passing test, ensure that you clean the code up and make it as readable as possible. If all your code ends up in the normalize method, chances are you can improve on it significantly. If you feel you need comments to explain the logic bits, chances are even better that you have code-focused opportunities for improvement.
 
 Here is the complete set of instructions:
