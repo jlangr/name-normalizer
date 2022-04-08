@@ -5,70 +5,68 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class AnAuthorNameNormalizer {
-    private AuthorNameNormalizer normalizer = new AuthorNameNormalizer();
+class AnAuthorNameNormalizer {
+    AuthorNameNormalizer normalizer = new AuthorNameNormalizer();
 
-    @Disabled
     @Test
-    public void returnsEmptyStringWhenEmpty() {
+    void returnsEmptyStringWhenEmpty() {
         assertThat(normalizer.normalize(""))
-                .isEqualTo("");
+                .isEmpty();
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void returnsSingleWordName() {
+    void returnsSingleWordName() {
         assertThat(normalizer.normalize("Plato"))
                 .isEqualTo("Plato");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void swapsFirstAndLastNames() {
+    void swapsFirstAndLastNames() {
       assertThat(normalizer.normalize("Haruki Murakami"))
               .isEqualTo("Murakami, Haruki");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void trimsLeadingAndTrailingWhitespace() {
+    void trimsLeadingAndTrailingWhitespace() {
         assertThat(normalizer.normalize("  Big Boi   "))
                 .isEqualTo("Boi, Big");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void initializesMiddleName() {
+    void initializesMiddleName() {
         assertThat(normalizer.normalize("Henry David Thoreau"))
                 .isEqualTo("Thoreau, Henry D.");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void doesNotInitializeOneLetterMiddleName() {
+    void doesNotInitializeOneLetterMiddleName() {
         assertThat(normalizer.normalize("Harry S Truman"))
                 .isEqualTo("Truman, Harry S");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void initializesEachOfMultipleMiddleNames() {
+    void initializesEachOfMultipleMiddleNames() {
         assertThat(normalizer.normalize("Julia Scarlett Elizabeth Louis-Dreyfus"))
                 .isEqualTo("Louis-Dreyfus, Julia S. E.");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void appendsSuffixesToEnd() {
+    void appendsSuffixesToEnd() {
         assertThat(normalizer.normalize("Martin Luther King, Jr."))
                 .isEqualTo("King, Martin L., Jr.");
     }
 
-    @Disabled
+    @Disabled("uncomment when ready")
     @Test
-    public void throwsWhenNameContainsTwoCommas() {
-        assertThatThrownBy(() -> {
-            normalizer.normalize("Thurston, Howell, III");
-        }).isInstanceOf(IllegalArgumentException.class);
+    void throwsWhenNameContainsTwoCommas() {
+        assertThatThrownBy(() -> normalizer.normalize("Thurston, Howell, III"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
