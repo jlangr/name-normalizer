@@ -34,6 +34,7 @@ Currently this repo contains implementations in the following languages (contrib
 * Kotlin (Jon Reid)
 * Objective-C (Jon Reid)
 * Ruby (Jeff Langr)
+* Rust (Akeshihiro)
 * Swift (Jon Reid)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
