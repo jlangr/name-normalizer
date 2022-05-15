@@ -20,7 +20,8 @@ Here is the complete set of instructions:
 1. Make sure you are clear on why the test failed.
 1. Write only enough code to make that failing test pass (and not break any other tests).
    Did you write too much? Is there a simpler way to get that test to pass???
-1. If there is a second commented-out assertion in any test (very rare!), uncomment it. It should fail. If not, return to step 5.
+1. Clean up whatever messes you made. Refactor. Ensure tests still pass.
+1. If there is a second commented-out assertion in any test (rare!), uncomment it. It should fail. If not, return to step 5.
 1. Repeat prior steps until no more test methods exist.
 
 Currently this repo contains implementations in the following languages (contributor in parentheses):
