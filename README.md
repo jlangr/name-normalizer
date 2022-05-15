@@ -30,6 +30,7 @@ Currently this repo contains implementations in the following languages (contrib
 * C++ (gcc) (Jeff Langr)
 * Clojure (Jeff Langr)
 * Elixir (Kerry Buckley)
+* Go (Akeshihiro)
 * Java (Jeff Langr)
 * JavaScript (Jeff Langr)
 * Kotlin (Jon Reid)
