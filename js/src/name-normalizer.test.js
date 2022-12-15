@@ -4,10 +4,10 @@ describe('a name normalizer', () => {
   it('returns empty when passed empty string', () =>
     expect(normalize("")).toEqual(""))
 
-  xit('returns single word name', () =>
+  it('returns single word name', () =>
     expect(normalize("Plato")).toEqual("Plato"))
 
-  xit('swaps first and last names', () =>
+  it('swaps first and last names', () =>
       expect(normalize("Haruki Murakami")).toEqual("Murakami, Haruki"))
 
   xit('trims leading and trailing whitespace', () =>
