@@ -10,7 +10,7 @@ describe('a name normalizer', () => {
   it('swaps first and last names', () =>
       expect(normalize("Haruki Murakami")).toEqual("Murakami, Haruki"))
 
-  xit('trims leading and trailing whitespace', () =>
+  it('trims leading and trailing whitespace', () =>
       expect(normalize("  Big Boi   ")).toEqual("Boi, Big"))
 
   xit('initializes middle name', () =>
