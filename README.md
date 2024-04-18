@@ -42,4 +42,8 @@ Currently this repo contains implementations in the following languages (contrib
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
+You can find solutions for most of these in the `all-solutions` branch.
+
 Missing your favorite language? Please send me a pull request if you're able to supply at least the starter code. (I might be able to put together a few more myself, including Go, Groovy, Python, Rust, Smalltalk and Scala, though I could use a pair since these aren't languages I use often anymore.)
+
+Think you have a better solution for a language? I'm happy to see alternate approaches. If you have an incremental improvement, submit a PR.
