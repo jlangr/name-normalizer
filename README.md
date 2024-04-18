@@ -8,33 +8,42 @@ This is a great introductory way to learn about the incremental growth aspect of
 
 The primary things to focus on:
 
-* Write no more code than needed to pass a test.
-* If the test passes immediately, it's likely you wrote too much code in a prior step. (Or maybe you just forgot something silly, such as not compiling things.) If so, go back to the the *beginning of the prior step.* Discard that effort, and think hard about a smaller implementation that would meet only the needs of the current set of tests.
-* Refactor, refactor, refactor. With each passing test, ensure that you clean the code up and make it as readable as possible. If all your code ends up in the normalize method, chances are you can improve on it significantly. If you feel you need comments to explain the logic bits, chances are even better that you have code-focused opportunities for improvement.
+- Write no more code than needed to pass a test.
+- If the test passes immediately, it's likely you wrote too much code in a prior step. (Or maybe you just forgot something silly, such as not compiling things.) If so, go back to the _beginning of the prior step._ Discard that effort, and think hard about a smaller implementation that would meet only the needs of the current set of tests.
+- Refactor, refactor, refactor. With each passing test, ensure that you clean the code up and make it as readable as possible. If all your code ends up in the normalize method, chances are you can improve on it significantly. If you feel you need comments to explain the logic bits, chances are even better that you have code-focused opportunities for improvement.
 
 Here is the complete set of instructions:
 
 1. Ensure that the topmost test is enabled (i.e. ensure that it is not commented out, disabled, or otherwise marked as ignored).
-1. Run your unit testing tool (e.g. JUnit, NUnit, xUnit.NET, CppUTest) against *all* tests in the project.
+1. Run your unit testing tool (e.g. JUnit, NUnit, xUnit.NET, CppUTest) against _all_ tests in the project.
 1. Did the test you just enabled fail? If not: You built too much code in a prior step. Undo work for prior tests and try again.
 1. Make sure you are clear on why the test failed.
 1. Write only enough code to make that failing test pass (and not break any other tests).
    Did you write too much? Is there a simpler way to get that test to pass???
-1. If there is a second commented-out assertion in any test (very rare!), uncomment it. It should fail. If not, return to step 5.
+1. Clean up whatever messes you made. Refactor. Ensure tests still pass.
+1. If there is a second commented-out assertion in any test (rare!), uncomment it. It should fail. If not, return to step 5.
 1. Repeat prior steps until no more test methods exist.
 
-Currently this repo contains implementations in the following languages:
+Currently this repo contains implementations in the following languages (contributor in parentheses):
 
-* C#
-* C++ (gcc)
-* Clojure
-* Elixir (contributor: Kerry Buckley)
-* Java
-* JavaScript
-* Kotlin (contributor: Jon Reid)
-* Objective-C (contributor: Jon Reid)
-* Swift (contributor: Jon Reid)
+- C# (Jeff Langr)
+- C++ (gcc) (Jeff Langr)
+- Clojure (Jeff Langr)
+- Elixir (Kerry Buckley)
+- Go (Akeshihiro)
+- Java (Jeff Langr)
+- JavaScript (Jeff Langr)
+- Kotlin (Jon Reid)
+- Objective-C (Jon Reid)
+- Ruby (Jeff Langr)
+- Rust (Akeshihiro)
+- Swift (Jon Reid)
+- TypeScript (Cameron Presley)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
-Missing your favorite language? Please send me a pull request.
+You can find solutions for most of these in the `all-solutions` branch.
+
+Missing your favorite language? Please submit a pull request minimally containing the starter code. Code a solution in the `all-solutions` branch if you can. Conspicuously missing: Python. (Let me know if you would like to pair on a solution for Python or Scala; I could use a pair.)
+
+Think you have a better solution for a language? I'm happy to see alternate approaches. If you have an incremental improvement, submit a PR.
