@@ -35,6 +35,7 @@ Currently this repo contains implementations in the following languages (contrib
 - JavaScript (Jeff Langr)
 - Kotlin (Jon Reid)
 - Objective-C (Jon Reid)
+- Python (Chad Gorshing)
 - Ruby (Jeff Langr)
 - Rust (Akeshihiro)
 - Swift (Jon Reid)
