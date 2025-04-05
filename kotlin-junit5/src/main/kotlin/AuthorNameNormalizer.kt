@@ -1,10 +1,10 @@
 class AuthorNameNormalizer {
-    fun normalize(rawName: String): String {
+    fun normalize(name: String): String {
         return when {
-            isMultipart(rawName) -> {
-                normalizeMultipart(rawName)
+            isMultipart(name) -> {
+                normalizeMultipart(name)
             }
-            else -> rawName
+            else -> name
         }
     }
 
