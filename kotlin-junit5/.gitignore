@@ -1,0 +1,28 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Build files
+build/
+out/
+tmp/
+
+# Gradle files
+.gradle/
+/gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties # Exclude this line if you want to ignore the wrapper properties
+*.lockfile
+
+# Kotlin compiler
+*.kotlin_module
+.kotlin/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.log
+*.bak
