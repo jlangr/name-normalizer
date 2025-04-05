@@ -9,8 +9,13 @@ class AuthorNameNormalizer {
     private fun normalizeMultipart(fullName: String): String {
         val parts = fullName.split(" ").filter { it.isNotBlank() }
         return when {
-            hasSuffix(fullName) -> appendSuffix(fullName)
-            hasMiddleName(parts) -> appendMiddleInitials(parts)
+            hasSuffix(fullName) -> {
+                val (mainPart, suffix) = fullName.split(",")
+                "${normalize(mainPart)}, ${suffix.trim()}"
+            }
+
+            hasMiddleName(parts) -> "${putLastNameFirst(parts)} ${initialsOf(middle(parts))}"
+
             else -> putLastNameFirst(parts)
         }
     }
@@ -23,15 +28,7 @@ class AuthorNameNormalizer {
         else -> throw IllegalArgumentException("name contains two commas")
     }
 
-    private fun appendSuffix(fullName: String): String {
-        val (mainPart, suffix) = fullName.split(",")
-        return normalize(mainPart) + ", ${suffix.trim()}"
-    }
-
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
-
-    private fun appendMiddleInitials(parts: List<String>) =
-        "${putLastNameFirst(parts)} ${initialsOf(middle(parts))}"
 
     private fun middle(names: List<String>) = names.dropLast(1).drop(1)
 
