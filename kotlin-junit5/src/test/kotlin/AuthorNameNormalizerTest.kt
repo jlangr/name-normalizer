@@ -53,7 +53,6 @@ class AuthorNameNormalizerTest {
             .isEqualTo("King, Martin L., Jr.")
     }
 
-    @Disabled
     @Test
     fun `throws when name contains two commas`() {
         assertThatExceptionOfType(IllegalArgumentException::class.java)
