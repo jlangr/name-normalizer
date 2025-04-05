@@ -35,7 +35,7 @@ class AuthorNameNormalizer {
 
     private fun middle(names: List<String>) = names.dropLast(1).drop(1)
 
-    private fun initialsOf(names: List<String>) = names.joinToString(" ") { initialize(it) }
-
-    private fun initialize(it: String) = it.first().uppercase() + if (it.length > 1) "." else ""
+    private fun initialsOf(names: List<String>) = names.joinToString(" ") {
+        it.first().uppercase() + if (it.length > 1) "." else ""
+    }
 }
