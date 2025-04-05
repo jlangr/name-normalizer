@@ -15,7 +15,7 @@ class AuthorNameNormalizer {
         }
     }
 
-    private fun putLastNameFirst(parts: List<String>) = "${parts[1]}, ${parts[0]}"
+    private fun putLastNameFirst(parts: List<String>) = "${parts.last()}, ${parts.first()}"
 
     private fun hasSuffix(name: String) = when (name.count { it == ',' }) {
         0 -> false
@@ -30,9 +30,8 @@ class AuthorNameNormalizer {
 
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
-    private fun appendMiddleInitials(parts: List<String>): String {
-        return "${parts.last()}, ${parts.first()} ${initialsOf(middle(parts))}"
-    }
+    private fun appendMiddleInitials(parts: List<String>) =
+        "${putLastNameFirst(parts)} ${initialsOf(middle(parts))}"
 
     private fun middle(names: List<String>) = names.dropLast(1).drop(1)
 
