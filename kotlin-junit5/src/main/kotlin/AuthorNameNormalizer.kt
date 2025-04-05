@@ -11,7 +11,7 @@ class AuthorNameNormalizer {
     private fun normalizeMultipart(rawName: String): String {
         val parts = rawName.split(" ").filter { it.isNotBlank() }
         return when {
-            rawName.contains(',') -> {
+            hasSuffix(rawName) -> {
                 val (mainName, suffix) = rawName.split(",")
                 normalize(mainName) + ", ${suffix.trim()}"
             }
@@ -27,6 +27,8 @@ class AuthorNameNormalizer {
             }
         }
     }
+
+    private fun hasSuffix(rawName: String) = rawName.contains(',')
 
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
