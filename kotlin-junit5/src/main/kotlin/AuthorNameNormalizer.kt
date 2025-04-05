@@ -16,8 +16,8 @@ class AuthorNameNormalizer {
             }
 
             hasMiddleName(parts) -> {
-                val middleNames = parts.dropLast(1).drop(1).joinToString(" ") {
-                    it.first().uppercase() + if (it.length > 1) "." else ""
+                val middleNames = middle(parts).joinToString(" ") {
+                    initialize(it)
                 }
 
                 "${parts.last()}, ${parts.first()} $middleNames"
@@ -28,6 +28,10 @@ class AuthorNameNormalizer {
             }
         }
     }
+
+    private fun middle(parts: List<String>) = parts.dropLast(1).drop(1)
+
+    private fun initialize(it: String) = it.first().uppercase() + if (it.length > 1) "." else ""
 
     private fun hasSuffix(rawName: String) = when (rawName.count { it == ',' }) {
         0 -> false
