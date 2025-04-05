@@ -16,11 +16,11 @@ class AuthorNameNormalizer {
             }
 
             hasMiddleName(parts) -> {
-                val middleNames = middle(parts).joinToString(" ") {
+                val middleInitials = middle(parts).joinToString(" ") {
                     initialize(it)
                 }
 
-                "${parts.last()}, ${parts.first()} $middleNames"
+                "${parts.last()}, ${parts.first()} $middleInitials"
             }
 
             else -> {
