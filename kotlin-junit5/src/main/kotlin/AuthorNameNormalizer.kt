@@ -31,13 +31,12 @@ class AuthorNameNormalizer {
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
     private fun appendMiddleInitials(parts: List<String>): String {
-        val middleInitials = middle(parts).joinToString(" ") {
-            initialize(it)
-        }
-        return "${parts.last()}, ${parts.first()} $middleInitials"
+        return "${parts.last()}, ${parts.first()} ${initialsOf(middle(parts))}"
     }
 
     private fun middle(names: List<String>) = names.dropLast(1).drop(1)
+
+    private fun initialsOf(names: List<String>) = names.joinToString(" ") { initialize(it) }
 
     private fun initialize(it: String) = it.first().uppercase() + if (it.length > 1) "." else ""
 }
