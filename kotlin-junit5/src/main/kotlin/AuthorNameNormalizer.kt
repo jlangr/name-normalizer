@@ -29,7 +29,7 @@ class AuthorNameNormalizer {
         }
     }
 
-    private fun middle(parts: List<String>) = parts.dropLast(1).drop(1)
+    private fun middle(names: List<String>) = names.dropLast(1).drop(1)
 
     private fun initialize(it: String) = it.first().uppercase() + if (it.length > 1) "." else ""
 
