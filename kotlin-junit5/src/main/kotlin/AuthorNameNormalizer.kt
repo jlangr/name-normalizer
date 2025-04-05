@@ -16,9 +16,9 @@ class AuthorNameNormalizer {
             }
 
             hasMiddleName(parts) -> {
-                val middleNames = parts.dropLast(1).drop(1).map {
+                val middleNames = parts.dropLast(1).drop(1).joinToString(" ") {
                     it.first().uppercase() + if (it.length > 1) "." else ""
-                }.joinToString(" ")
+                }
 
                 "${parts.last()}, ${parts.first()} $middleNames"
             }
