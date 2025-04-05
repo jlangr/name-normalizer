@@ -23,12 +23,12 @@ class AuthorNameNormalizer {
         else -> throw IllegalArgumentException("name contains two commas")
     }
 
-    private fun hasMiddleName(parts: List<String>) = parts.size > 2
-
     private fun appendSuffix(fullName: String): String {
         val (mainPart, suffix) = fullName.split(",")
         return normalize(mainPart) + ", ${suffix.trim()}"
     }
+
+    private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
     private fun appendMiddleInitials(parts: List<String>): String {
         val middleInitials = middle(parts).joinToString(" ") {
