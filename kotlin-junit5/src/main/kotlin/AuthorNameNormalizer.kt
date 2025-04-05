@@ -3,6 +3,7 @@ class AuthorNameNormalizer {
         isMultipart(name) -> {
             normalizeMultipart(name)
         }
+
         else -> name
     }
 
@@ -13,6 +14,7 @@ class AuthorNameNormalizer {
                 val (mainName, suffix) = rawName.split(",")
                 normalize(mainName) + ", ${suffix.trim()}"
             }
+
             hasMiddleName(parts) -> {
                 val middleNames = parts.dropLast(1).drop(1).map {
                     it.first().uppercase() + if (it.length > 1) "." else ""
@@ -20,13 +22,18 @@ class AuthorNameNormalizer {
 
                 "${parts.last()}, ${parts.first()} $middleNames"
             }
+
             else -> {
                 "${parts[1]}, ${parts[0]}"
             }
         }
     }
 
-    private fun hasSuffix(rawName: String) = rawName.contains(',')
+    private fun hasSuffix(rawName: String) = when (rawName.count { it == ',' }) {
+        0 -> false
+        1 -> true
+        else -> throw IllegalArgumentException("name contains two commas")
+    }
 
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
