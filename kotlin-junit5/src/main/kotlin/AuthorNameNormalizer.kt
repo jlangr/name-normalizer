@@ -12,11 +12,11 @@ class AuthorNameNormalizer {
         val parts = rawName.split(" ").filter { it.isNotBlank() }
         return when {
             hasMiddleName(parts) -> {
-                val middleName = parts.dropLast(1).drop(1).map {
+                val middleNames = parts.dropLast(1).drop(1).map {
                     it.first().uppercase() + if (it.length > 1) "." else ""
                 }.joinToString(" ")
 
-                "${parts.last()}, ${parts.first()} $middleName"
+                "${parts.last()}, ${parts.first()} $middleNames"
             }
             else -> {
                 "${parts[1]}, ${parts[0]}"
