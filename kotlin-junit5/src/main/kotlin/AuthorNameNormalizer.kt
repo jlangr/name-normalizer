@@ -1,9 +1,6 @@
 class AuthorNameNormalizer {
     fun normalize(name: String): String = when {
-        isMultipart(name) -> {
-            normalizeMultipart(name)
-        }
-
+        isMultipart(name) -> normalizeMultipart(name)
         else -> name
     }
 
@@ -12,13 +9,13 @@ class AuthorNameNormalizer {
     private fun normalizeMultipart(fullName: String): String {
         val parts = fullName.split(" ").filter { it.isNotBlank() }
         return when {
-            hasSuffix(fullName) -> normalizeWithSuffix(fullName)
-            hasMiddleName(parts) -> normalizeWithMiddleInitials(parts)
-            else -> normalizeWithLastNameFirst(parts)
+            hasSuffix(fullName) -> appendSuffix(fullName)
+            hasMiddleName(parts) -> appendMiddleInitials(parts)
+            else -> putLastNameFirst(parts)
         }
     }
 
-    private fun normalizeWithLastNameFirst(parts: List<String>) = "${parts[1]}, ${parts[0]}"
+    private fun putLastNameFirst(parts: List<String>) = "${parts[1]}, ${parts[0]}"
 
     private fun hasSuffix(name: String) = when (name.count { it == ',' }) {
         0 -> false
@@ -28,12 +25,12 @@ class AuthorNameNormalizer {
 
     private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
-    private fun normalizeWithSuffix(fullName: String): String {
+    private fun appendSuffix(fullName: String): String {
         val (mainPart, suffix) = fullName.split(",")
         return normalize(mainPart) + ", ${suffix.trim()}"
     }
 
-    private fun normalizeWithMiddleInitials(parts: List<String>): String {
+    private fun appendMiddleInitials(parts: List<String>): String {
         val middleInitials = middle(parts).joinToString(" ") {
             initialize(it)
         }
