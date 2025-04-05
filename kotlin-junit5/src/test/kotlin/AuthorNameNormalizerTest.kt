@@ -29,7 +29,6 @@ class AuthorNameNormalizerTest {
             .isEqualTo("Boi, Big")
     }
 
-    @Disabled
     @Test
     fun `initializes middle name`() {
         assertThat(normalizer.normalize("Henry David Thoreau"))
