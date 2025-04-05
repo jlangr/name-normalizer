@@ -1,5 +1,7 @@
 import org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class AuthorNameNormalizerTest {
     private val normalizer = AuthorNameNormalizer()
@@ -57,5 +59,20 @@ class AuthorNameNormalizerTest {
         assertThatExceptionOfType(IllegalArgumentException::class.java)
             .isThrownBy { normalizer.normalize("Thurston, Howell, III") }
             .withMessage("name contains two commas")
+    }
+
+    @ParameterizedTest
+    @CsvSource(useHeadersInDisplayName = true,
+        delimiterString = ";",
+        textBlock = """
+            fullName;            normalizedName
+            E. B. White;         White, E. B.
+            J. K. Simmons;       Simmons, J. K.
+            J. R. R. Tolkien;    Tolkien, J. R. R.
+            J. R. Ewing, Jr.;    Ewing, J. R., Jr."""
+    )
+    fun `uses initials as they are`(fullName: String, normalizedName: String) {
+        assertThat(normalizer.normalize(fullName))
+            .isEqualTo(normalizedName)
     }
 }
