@@ -10,23 +10,25 @@ class AuthorNameNormalizer {
     private fun normalizeMultipart(fullName: String): String {
         val parts = fullName.split(" ").filter { it.isNotBlank() }
         return when {
-            hasSuffix(fullName) -> {
-                val (mainPart, suffix) = fullName.split(",")
-                normalize(mainPart) + ", ${suffix.trim()}"
-            }
-
-            hasMiddleName(parts) -> {
-                val middleInitials = middle(parts).joinToString(" ") {
-                    initialize(it)
-                }
-
-                "${parts.last()}, ${parts.first()} $middleInitials"
-            }
-
-            else -> {
-                "${parts[1]}, ${parts[0]}"
-            }
+            hasSuffix(fullName) -> normalizeWithSuffix(fullName)
+            hasMiddleName(parts) -> normalizeWithMiddleInitials(parts)
+            else -> normalizeWithLastNameFirst(parts)
         }
+    }
+
+    private fun normalizeWithLastNameFirst(parts: List<String>) = "${parts[1]}, ${parts[0]}"
+
+    private fun normalizeWithMiddleInitials(parts: List<String>): String {
+        val middleInitials = middle(parts).joinToString(" ") {
+            initialize(it)
+        }
+
+        return "${parts.last()}, ${parts.first()} $middleInitials"
+    }
+
+    private fun normalizeWithSuffix(fullName: String): String {
+        val (mainPart, suffix) = fullName.split(",")
+        return normalize(mainPart) + ", ${suffix.trim()}"
     }
 
     private fun middle(names: List<String>) = names.dropLast(1).drop(1)
