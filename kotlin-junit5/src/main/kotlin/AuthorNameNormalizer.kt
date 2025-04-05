@@ -11,10 +11,11 @@ class AuthorNameNormalizer {
     private fun normalizeMultipart(rawName: String): String {
         val parts = rawName.split(" ").filter { it.isNotBlank() }
         return when {
-            parts.size > 2 -> {
+            hasMiddleName(parts) -> {
                 val middleName = parts.dropLast(1).drop(1).map {
                     it.first().uppercase() + if (it.length > 1) "." else ""
                 }.joinToString(" ")
+
                 "${parts.last()}, ${parts.first()} $middleName"
             }
             else -> {
@@ -22,6 +23,8 @@ class AuthorNameNormalizer {
             }
         }
     }
+
+    private fun hasMiddleName(parts: List<String>) = parts.size > 2
 
     private fun isMultipart(rawName: String) = rawName.contains(' ')
 }
