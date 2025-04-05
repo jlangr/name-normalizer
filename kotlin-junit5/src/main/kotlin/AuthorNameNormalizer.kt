@@ -1,3 +1,5 @@
 class AuthorNameNormalizer {
-    fun normalize(s: String): String = "wha?"
+    fun normalize(s: String): String {
+        TODO("Not implemented")
+    }
 }
