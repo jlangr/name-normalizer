@@ -1,9 +1,9 @@
 class AuthorNameNormalizer {
-    fun normalize(s: String): String {
-        if (s.contains(' ')) {
-            val parts = s.split(" ")
+    fun normalize(rawName: String): String {
+        if (rawName.contains(' ')) {
+            val parts = rawName.split(" ")
             return "${parts[1]}, ${parts[0]}"
         }
-        return s
+        return rawName
     }
 }
