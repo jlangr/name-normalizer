@@ -484,3 +484,31 @@ I decided to rename `rawName` to `authorName` to make it more consistent with th
 Commit comment: `. r Refactor rawName to authorName`
 
 ----
+
+## Step 15 - Enable initializes middle name test and see it fail
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the initializes middle name test
+2. Ran the test and saw it fail
+
+**Result**
+
+    AuthorNameNormalizerTest > initializes middle name() FAILED
+    org.opentest4j.AssertionFailedError: 
+    expected: "Thoreau, Henry D."
+     but was: "David, Henry"
+        at app//AuthorNameNormalizerTest.initializes middle name(AuthorNameNormalizerTest.kt:35)
+
+    9 tests completed, 1 failed, 4 skipped
+
+**Commentary**
+
+This failing test reveals two problems in the current solution.
+
+1. Bug: It picks up the wrong last name (David instead of Thoreau)
+2. Missing behavior: It doesn't initialize the middle name
+
+Commit comment: `. t (RED) Enable initializes middle name test and see it fail`
+
+----
