@@ -869,3 +869,20 @@ Commit comment: `. r Resolve compiler warning about unused import for @Disabled`
 
 ----
 
+## Step 33 - Tidy for reading order
+
+**What was done**
+
+1. Reordered functions to reading order
+
+**Result**
+
+    9 tests passed, 9 tests total
+
+**Commentary**
+
+Tidy up to arrange code in reading order.
+
+Commit comment: `. r Tidy up for reading order`
+
+

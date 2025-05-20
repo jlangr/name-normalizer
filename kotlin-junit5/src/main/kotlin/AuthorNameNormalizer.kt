@@ -13,6 +13,14 @@ class AuthorNameNormalizer {
 
     private fun String.isMultiPart(): Boolean = contains(' ')
 
+    private fun middle(parts: List<String>): List<String> = parts.drop(1).dropLast(1)
+
+    private fun initialize(middleNames: List<String>): String = middleNames
+        .joinToString(separator = " ", prefix = " ") {
+            if (it.length > 1) "${it.first()}." else it
+        }
+        .ifBlank { "" }
+
     private fun String.parts() =
         when {
             hasSuffix() -> {
@@ -24,24 +32,16 @@ class AuthorNameNormalizer {
             }
         }
 
-    private fun String.nameWithoutSuffix(): Pair<List<String>, String> = split(' ') to ""
+    private fun String.hasSuffix(): Boolean = contains(", ")
+
+    private fun String.rejectMultipleCommas() {
+        if (count { it == ',' } > 1) throw IllegalArgumentException("name contains two commas")
+    }
 
     private fun String.nameAndSuffix(): Pair<List<String>, String> {
         val parts = split(", ")
         return parts[0].split(" ") to ", ${parts[1]}"
     }
 
-    private fun String.rejectMultipleCommas() {
-        if (count { it == ',' } > 1) throw IllegalArgumentException("name contains two commas")
-    }
-
-    private fun String.hasSuffix(): Boolean = contains(", ")
-
-    private fun middle(parts: List<String>): List<String> = parts.drop(1).dropLast(1)
-
-    private fun initialize(middleNames: List<String>): String = middleNames
-        .joinToString(separator = " ", prefix = " ") {
-            if (it.length > 1) "${it.first()}." else it
-        }
-        .ifBlank { "" }
+    private fun String.nameWithoutSuffix(): Pair<List<String>, String> = split(' ') to ""
 }
