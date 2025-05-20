@@ -400,3 +400,24 @@ This is largely a matter of style but it's a nice feature that allows you to imp
 Commit comment: `. r Convert isMultiPart name parameter to a receiver`
 
 ----
+
+## Step 11 - Refactoring
+
+**What was done**
+
+1. Extracted the expression to split the name into its parts
+2. Converted the `name` parameter in `parts()` to a receiver.
+
+**Result**
+
+    3 tests passed, 6 ignored, 9 tests total
+
+**Commentary**
+
+Similar to the previous refactoring, this refactoring improves the semantics of the code and makes it a little more readable by extracting the expression to split the name into parts, then converting the `name` parameter to a receiver.
+
+Note that it's normal to have multiple refactoring steps in a row. Committing each refactoring step separately allows you to easily backtrack to any previous step. Again, finer-grained refactorings allows you to keep your options for evolving the design open to more possible paths.
+
+Commit comment: `. r Extract expression to parts() and convert name parameter to a receiver.`
+
+----
