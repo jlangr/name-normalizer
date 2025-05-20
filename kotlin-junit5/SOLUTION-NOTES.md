@@ -368,3 +368,35 @@ The expression `name.contains(' ')` is a good candidate for extraction. It's a s
 Hiding the implementation detail in a private function named `isMultiPart()` clarifies the intent of the code and makes it easier to understand.
 
 Commit: `. r Extract method to clarify intent of checking for multipart names.`
+
+----
+
+## Step 10 - Refactoring
+
+**What was done**
+
+1. Converted the `name` parameter in `isMultiPart()` to a receiver.
+
+**Result**
+
+    3 tests passed, 6 ignored, 9 tests total
+
+**Commentary**
+
+This is a small refactoring to improve the semantics of the code and make it a little more readable.
+
+By converting the `isMultiPart()` function into an [extension functions](https://kotlinlang.org/docs/kotlin-tour-intermediate-extension-functions.html) of `String`, `name` becomes the receiver of the function call instead of being passed in as a parameter.
+
+Compare the two versions of the call:
+
+    // version 1 - name is a parameter
+    if (isMultiPart(name))
+
+    // version 2 - name is the receiver
+    if (name.isMultiPart())
+
+This is largely a matter of style but it's a nice feature that allows you to improve the readability of your code.
+
+Commit comment: `. r Convert isMultiPart name parameter to a receiver`
+
+----
