@@ -885,4 +885,12 @@ Tidy up to arrange code in reading order.
 
 Commit comment: `. r Tidy up for reading order`
 
+----
 
+## Additional Exercises
+
+At this point, all the existing tests are passing and the code looks relatively clean. There are other things you could experiment with such as using parameterized tests to combine some tests into one. For example, you could combine the tests related to middle initials into one test. Try it and see how you like how the test code reads. One question I would ask is whether the combined test scenarios are closely related to each other or if they are different enough to warrant keeping them as separate tests. 
+
+Another piece of advice I have related to this is to always try coding ideas you have. I often find things that seemed like a good idea in my head don't turn out to be so good when I see it in code. The converse is also true where things that don't seem like very good ideas turn out to be quite good when expressed in code. Don't leave anything to the imagination: Code It!
+
+Happy coding!
