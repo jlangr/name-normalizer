@@ -689,3 +689,19 @@ I am marking it as validated to call out that the risk was noted and considered 
 Commit comment: `^ t (GREEN) Enable initializing multiple middle names test`
 
 ----
+
+## Step 24 - Rename to middleInitials
+
+**What we did**
+
+1. Rename `middleInitial` to make it plural
+
+**Result**
+
+    7 tests passed, 2 ignored, 9 tests total
+
+**Commentary**
+
+A small refactoring to align the semantics with the code's behavior: The value can represent multiple middle initials.
+
+Commit comment: `. r Rename variable to middleInitials`
