@@ -534,3 +534,34 @@ First, we had to fix the problem with the wrong last name being picked up. The b
 The logic for initializing the middle name works but is a bit messy and unclear. We'll refactor it for clarity in the next step.
 
 Commit comment: `. F (GREEN) implement initializes middle name functionality`
+
+----
+
+## Step 17 - Refactoring
+
+**What was done**
+
+1. Renamed `middle` to `middleInitial`
+2. Extracted the logic for picking out the middle name to `middle()`
+
+**Result**
+
+    5 tests passed, 4 ignored, 9 tests total
+
+**Commentary**
+
+This starts to clarify the intent of the code to initialize the middle name. We start by renaming the `middle` variable so it expresses its purpose more completely. We then extract the logic that extracts the middle name(s) to a private function.
+
+Prior to this I tried extracting the entire right side of the assignment to `middle()` but it turned out to be too big of a change for what I wanted to do, which was to be able to write:
+
+    val middleInitial = initialize(middle(parts))
+
+I had considered refactoring to this:
+
+    val middleInitial = middle(parts).initialized()
+
+but decided to go with the former because it aligned better with my verbal explanation.
+
+Commit comment: `. r Rename middle to middleInitial and extract logic to pick out middle name`
+
+----
