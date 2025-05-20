@@ -55,3 +55,31 @@ In this exercise, the Zero case is represented by an empty string, the One case 
 The "S", for simple scenarios/simple solutions, is more of a general guideline that applies to all tests.
 
 ----
+
+## Step 1 - Enable first test and see it fail
+
+**What was done**
+
+1. Deleted the `@Disabled` annotation on the first test (empty string).
+2. Ran the test and saw it fail.
+
+**Result**
+
+    AuthorNameNormalizerTest > returns empty string when empty() FAILED
+    kotlin.NotImplementedError at AuthorNameNormalizerTest.kt:10
+
+    9 tests completed, 1 failed, 8 skipped
+
+**Commentary**
+
+Success! But wait, how can a failing test be a success?
+
+TDD turns many things about development on its head. When you develop in a test-after manner by writing tests _after_ you've written the production code, a failing test means something isn't working the way you thought it would. Now you have to figure out what's wrong and fix it.
+
+On the other hand, when you write a test _first_, as we do in TDD, a failing test represents progress. Why? Because the failure means there's functionality that's missing. Rather than going _back_ and fixing what was done, the failing test tells us to move forward and implement the missing functionality.
+
+Note that the failing test is focused on a very specific aspect of behavior: the case when an empty string is passed in. This is a good test to start with because it's the simplest case. In the context of the ZOMBIES guideline, it represents Z(ero) and S(imple).
+
+Commit: `. t (RED) Enable the empty string test and see it fail`
+
+----
