@@ -650,3 +650,21 @@ Only names that have more than one letter will be initialized.
 Commit comment: `. F Add check so only middle names with more than one letter are initialized`
 
 ----
+
+## Step 22 - Tidy up for reading order
+
+**What was done**
+
+1. Tidied up for reading order
+
+**Result**
+
+    6 tests passed, 3 ignored, 9 tests total
+
+**Commentary**
+
+This is from Kent Beck's "Tidy First?" book. Arranging the functions in reading/encounter order helps makes the code easier to scan.
+
+Commit comment: `. r Tidy up for reading order`
+
+----
