@@ -121,3 +121,55 @@ See also:
 * YouTube video: [If Russ Ackoff had given a TED Talk...](https://youtu.be/OqEeIG8aPPk?si=T8gKwRrC5Rba78ld)
 
 ----
+
+## Step 3 - Refactor
+
+**Commentary**
+
+Refactoring tends to be the most skipped step in TDD, especially in the early going when changes to the code seem minimal or trivial. Unfortunately, the longer you put off refactoring, the more difficult it becomes and the more you tend to overlook small details, thus reducing the value you get out of TDD.
+
+Skipping the refactoring step once or twice is not the end of the world, but if you find yourself skipping it multiple times in a row, you might be accumulating too many changes. The smaller the change, the easier it will be to refactor. The longer you put off refactoring, the more chances there are for the code to become more resistant to refactoring.
+
+Key practice: Refactor sooner rather than later and make the code reflect your current understanding as best as you can at all times.
+
+See also: YouTube video where [Ward explains the Debt Metaphor](https://youtu.be/pqeJFYwnkjE?si=QmmrLTV7o3unWyvX) or read the [transcript](https://wiki.c2.com/?WardExplainsDebtMetaphor).
+
+At this point, you might be tempted to skip refactoring and go on to the next step. However, if you take a minute to read the code and check it for duplication and clarity of intent (see [the four rules of simple design](https://martinfowler.com/bliki/BeckDesignRules.html)), you might notice that the parameter `s` of the `normalize()` function doesn't express its intent very well.
+
+### Dual Coding: Finding opportunities to refactor
+
+Dual coding is a learning strategy that I often use to find opportunities to refactor. It's essentially this:
+
+1. Combine visual and verbal information
+2. Explain the visuals in your own words
+
+With code, the visual information is the code itself that you're reading. The verbal information comes from explaining the code out loud in your own words. By combining visual and verbal information this way, it's easier to notice differences between how the code is written and how someone reading it might interpret it.
+
+Try this: Read the code _out loud_, don't just vocalize it in your head. If you're programming in a pair or mob, have the navigator read the code out loud and explain its intent in their own words. Read the code as you listen to the explanation. This will activate the visual and verbal/listening input channels to your brain. Look out for discrepancies between what you're reading and what you're hearing.
+
+If I were to explain the code we have at this point in my own words, I might say "The normalize function takes a _name_ and returns _an empty string_."
+
+When I hear myself say "takes a name" but see the parameter `s` in the code, I recognize this as a translation that adds cognitive load on the reader. Translations like this often go unnoticed, mainly because programmers do it all the time and are used to it. Renaming `s` to `name` clarifies the code's intent and improves its readability.
+
+This may seem trivial and even nitpicky at first but having good names that clearly express the code's intent is a cornerstone of simple design and readable code. Once you get used to writing and reading code that clearly expresses its intent, you'll become more sensitive to the extra effort it takes to read code that doesn't and thus be able to find more opportunities to refactor.
+
+*Pro Tip*: Practice dual coding during the refactoring step to develop a sensitivity to code that could be refactored to express its intent more clearly.
+
+One might also argue that the same kind of cognitive load exists with "returns an empty string" and the code `return ""` and introduce a constant like `EMPTY_STRING`. I didn't choose to go that far because I knew that that line would change or be eliminated later anyway.
+
+**What we changed**
+
+1. Make the parameter `s` express its intent by renaming it to `name`
+
+**Result**
+
+    1 test passed, 8 ignored, 9 tests total
+
+Commit comment: `. r Refactor to make parameter express its intent`
+
+### References
+
+* [Dual Coding and Learning Styles](https://www.learningscientists.org/blog/2019/6/6-1)
+* [Four Rules of Simple Design](https://martinfowler.com/bliki/BeckDesignRules.html)
+
+----
