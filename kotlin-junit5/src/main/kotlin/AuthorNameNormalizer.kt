@@ -9,7 +9,9 @@ class AuthorNameNormalizer {
     }
 
     private fun initialize(middleNames: List<String>): String = middleNames
-        .joinToString(separator = " ", prefix = " ") { "${it.first()}." }
+        .joinToString(separator = " ", prefix = " ") {
+            if (it.length > 1) "${it.first()}." else it
+        }
         .ifBlank { "" }
 
     private fun middle(parts: List<String>): List<String> = parts.drop(1).dropLast(1)
