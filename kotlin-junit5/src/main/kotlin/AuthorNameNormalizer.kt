@@ -14,6 +14,7 @@ class AuthorNameNormalizer {
     private fun String.parts() =
         when {
             hasSuffix() -> {
+                if (count { it == ',' } > 1) throw IllegalArgumentException("name contains two commas")
                 val parts = split(", ")
                 parts[0].split(" ") to ", ${parts[1]}"
             }
