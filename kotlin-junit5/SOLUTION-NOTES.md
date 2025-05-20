@@ -446,3 +446,23 @@ The test expects leading and trailing whitespaces to be trimmed from the name. T
 Commit comment: `. t (RED) Enable trim leading and trailing whitespace test and see it fail`
 
 ----
+
+
+## Step 13 - Make the trims leading and trailing whitespace test pass
+
+**What was done**
+
+1. Manually renamed the `name` parameter to `rawName`
+2. Trimmed `rawName` and assigned the result to a new local variable `name`
+
+**Result**
+
+    4 tests passed, 5 ignored, 9 tests total
+
+**Commentary**
+
+This change posed a slight risk because I manually renamed the `name` parameter to `rawName`. The risk, however, was minimal because the function is still very short. At first, I introduced a `trimmed` local variable to store the trimmed name and then changed all the references to `name` after that to `trimmedName`. I decided to revert and keep the semantics for `name` instead. Introducing `rawName` to represent the original, unmodified name involves fewer changes making it less risky. The name `rawName` might not be the best but it is good enough for now. I'll refactor it later if I think of a better name.
+
+Commit comment: `^ F (GREEN) Implement trims leading and trailing whitespace functionality`
+
+----
