@@ -347,3 +347,24 @@ You might cringe at the thought of using specific indices to pick out the first 
 Commit: `. F (GREEN) implement swap first and last names functionality.`
 
 ----
+
+## Step 9 - Refactoring
+
+**What was done**
+
+1. Extracted the expression to check if name has multiple words
+
+**Result**
+
+    3 tests passed, 6 ignored, 9 tests total
+
+**Commentary**
+
+The expression `name.contains(' ')` is a good candidate for extraction. It's a simple expression but it doesn't quite align with the verbal explanation of "name contains multiple words". Extracting it to a private function and giving it a name like `isMultiPart()` makes its intent clearer. Again, dual coding helped highlight this refactoring opportunity:
+
+    Verbal info: Does the name contain multiple words?
+    Visual info: name.contains(' ')
+
+Hiding the implementation detail in a private function named `isMultiPart()` clarifies the intent of the code and makes it easier to understand.
+
+Commit: `. r Extract method to clarify intent of checking for multipart names.`
