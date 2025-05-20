@@ -771,3 +771,27 @@ The extract function makes the intent of the suffix check clear and expressed in
 Commit comment: `. r Convert if to when for style and extract to hasSuffix() function`
 
 ----
+
+## Step 28 - Enable multiple comma throws exception test
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the test for appending the suffix
+2. Run the test and see it fail
+
+**Result**
+
+    AuthorNameNormalizerTest > throws when name contains two commas() FAILED
+    java.lang.AssertionError: 
+    Expecting code to raise a throwable.
+        at AuthorNameNormalizerTest.throws when name contains two commas(AuthorNameNormalizerTest.kt:59)
+
+    9 tests completed, 1 failed
+
+**Commentary**
+
+Test fails because the solution doesn't check for multiple commas in the incoming name.
+
+Commit comment: `.t (RED) Enable the throws exception with multiple commas test`
+
+----
