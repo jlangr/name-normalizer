@@ -583,3 +583,27 @@ My first refactoring attempt was too big and the expression `middle(parts)` ende
 This is an intermediate refactoring step that will be reverted with an Inline variable refactoring later once the target code is in place. This step helps me use automated refactoring rather than manually editing the code. It may seem a bit roundabout and more tedious but automated refactoring is less risky and the additional step only takes a few seconds to do.
 
 Commit comment: `. r Introduce middleNames variable in preparation for next refactoring steps`
+
+----
+
+## Step 19 - Complete refactoring
+
+**What was done**
+
+1. Complete refactoring to `initialize(middle(parts))`
+
+**Result**
+
+    5 tests passed, 4 ignored, 9 tests total
+
+**Commentary**
+
+After extracting the right-hand side of the assignment to a private function, we can now inline the `middleInitials` variable and get the code we wanted: 
+
+    val middleInitial = initialize(middle(parts))
+
+This reads very nicely and clearly expresses its intent.
+
+Commit comment: `. r Extract right-hand side of the middleInitial assignment and inline the middleNames variable`
+
+----
