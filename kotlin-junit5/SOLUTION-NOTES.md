@@ -850,3 +850,22 @@ This might be going a bit farther than what most people would do but I think it'
 Commit comment: `. r Compose the parts() function`
 
 ----
+
+## Step 32 - Get rid of compiler warning
+
+**What was done**
+
+1. Deleted unused import for `@Disabled` annotation.
+
+**Result**
+
+    9 tests passed, 9 tests total
+
+**Commentary**
+
+Gets rid of the compiler warning about the unused import.
+
+Commit comment: `. r Resolve compiler warning about unused import for @Disabled`
+
+----
+
