@@ -11,7 +11,6 @@ class AuthorNameNormalizerTest {
             .isEqualTo("")
     }
 
-    @Disabled
     @Test
     fun `returns single word name`() {
         assertThat(normalizer.normalize("Plato"))

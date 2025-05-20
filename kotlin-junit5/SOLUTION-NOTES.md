@@ -173,3 +173,54 @@ Commit comment: `. r Refactor to make parameter express its intent`
 * [Four Rules of Simple Design](https://martinfowler.com/bliki/BeckDesignRules.html)
 
 ----
+
+## Step 4 - Enable single word test
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the single word test
+2. Ran the test and saw it fail
+
+**Result**
+
+    AuthorNameNormalizerTest > returns single word name() FAILED
+    org.opentest4j.AssertionFailedError: 
+    expected: "Plato"
+     but was: ""
+        at app//AuthorNameNormalizerTest.returns single word name(AuthorNameNormalizerTest.kt:17)
+
+    9 tests completed, 1 failed, 7 skipped
+
+**Commentary**
+
+This test failed because of our choice to return a hard-coded empty string in Step 2.
+
+When doing TDD, we use a failing test to show that something is wrong rather than try reasoning about it. The test we enabled focuses on the scenario where a single word name is passed in. Since the current solution only solves for the empty string case, it's not going to work for other types of input. The failing test shows that. This codifies our understanding of the problem and allows us to share that understanding with others.
+
+Here are a few other reasons to see this failing test as a positive:
+
+1. We can now make changes to the solution code to fix what's wrong.
+2. Going forward, this test will do the heavy lifting of verifying this aspect of behavior for us.
+3. This test will help detect regressions and facilitate refactoring.
+4. This test will give us ideas for what other tests we can write next.
+
+Commit message: `. t (RED) enable single word test and see it fail`
+
+### An Alternative Path
+
+In different iterations of this exercise, I made the first test pass by returning `s` instead of `""`. That decision led to this test passing immediately after it was enabled. That slightly changed the trajectory the solution took.
+
+If a test passes without failing first, ask these questions:
+
+1. Is this test redundant? Should it be deleted?
+2. Did we miss a scenario? Is there a smaller step that could be taken, one where this test will fail?
+3. Do we understand why this test didn't fail?
+4. Does this reveal a gap in our understanding?
+
+### Experiment to Gain Deeper Insights
+
+Imagine for a minute that this exercise didn't have tests already written. If you had to come up with tests yourself, would you have thought to test for a single word? Does the order in which you write tests matter? Would adding tests in a different order change the outcome?
+
+Explore the answers to these questions by experimenting with different choices. Where do those choices lead you? How do you use tests to keep moving forward? Experimenting with different choices and reflecting on the results is a great way to gain deeper insights about TDD.
+
+----
