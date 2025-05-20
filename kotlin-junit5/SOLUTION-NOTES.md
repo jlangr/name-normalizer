@@ -565,3 +565,21 @@ but decided to go with the former because it aligned better with my verbal expla
 Commit comment: `. r Rename middle to middleInitial and extract logic to pick out middle name`
 
 ----
+
+## Step 18 - Continue refactoring
+
+**What was done**
+
+1. Introduced a variable to facilitate automated refactoring to `initialize(middle(parts))`
+
+**Result**
+
+    5 tests passed, 4 ignored, 9 tests total
+
+**Commentary**
+
+My first refactoring attempt was too big and the expression `middle(parts)` ended up getting extracted along with the rest of the code, which I didn't want to happen. To prevent this, I needed to introduce a temporary variable.
+
+This is an intermediate refactoring step that will be reverted with an Inline variable refactoring later once the target code is in place. This step helps me use automated refactoring rather than manually editing the code. It may seem a bit roundabout and more tedious but automated refactoring is less risky and the additional step only takes a few seconds to do.
+
+Commit comment: `. r Introduce middleNames variable in preparation for next refactoring steps`

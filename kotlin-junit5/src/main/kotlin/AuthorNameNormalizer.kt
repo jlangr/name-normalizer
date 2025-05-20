@@ -3,7 +3,8 @@ class AuthorNameNormalizer {
         val name = authorName.trim()
         if (name.isMultiPart()) {
             val parts = name.parts()
-            val middleInitial = middle(parts)
+            val middleNames  = middle(parts)
+            val middleInitial = middleNames
                 .joinToString(separator = " ", prefix = " ") { "${it.first()}."}
                 .ifBlank { "" }
             return "${parts.last()}, ${parts.first()}$middleInitial"        }
