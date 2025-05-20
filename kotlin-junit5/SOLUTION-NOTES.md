@@ -300,3 +300,50 @@ Looking ahead at the other tests, you'll notice that this is a key piece of func
 Commit: `. t (RED) Enable swap first and last name test and see it fail`
 
 ----
+
+## Step 7 - Enable the swaps first and last names test and see it fail
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the swaps first and last names test
+2. Ran the test and saw it fail
+
+**Result**
+
+    org.opentest4j.AssertionFailedError: 
+    expected: "Murakami, Haruki"
+     but was: "Haruki Murakami"
+	    at AuthorNameNormalizerTest.swaps first and last names(AuthorNameNormalizerTest.kt:23)
+
+    9 tests completed, 1 failed, 6 skipped
+
+**Commentary**
+
+This is the Many case where the name contains more than one word. The test expects the first and last names to be swapped and separated by a comma and space.
+
+Looking ahead at the other tests, you'll notice that this is a key piece of functionality that other expected behaviors rely on.
+
+Commit: `. t (RED) Enable swap first and last name test and see it fail`
+
+----
+
+## Step 8 - Make the swap first and last names test pass
+
+**What was done**
+
+1. Separate the name parts using `split()`
+2. Format the name, last name first, separated by a comma
+
+**Result**
+
+    3 tests passed, 6 ignored, 9 tests total
+
+**Commentary**
+
+This is the biggest change we've made so far: a whopping four new lines of code! First, we used [split()](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/split.html) to separate the words in the name. We then formatted the name using a [string template])(https://kotlinlang.org/docs/strings.html#string-templates). 
+
+You might cringe at the thought of using specific indices to pick out the first and last names. Your gut might tell you that this is probably wrong but again, we're going to use this to lead us to a more general solution. Since this scenario deals specifically with a name that has only two words, this works for now and gets us quickly to green.
+
+Commit: `. F (GREEN) implement swap first and last names functionality.`
+
+----
