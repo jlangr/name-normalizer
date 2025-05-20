@@ -830,3 +830,23 @@ Commit comment: `. F (GREEN) Implement check for multiple commas`
 This is style-related refactoring that moves the `return` out of the if statement. Then we convert the if to a when.
 
 Commit comment: `. r Replace if with return and convert it to when.`
+
+----
+
+## Step 31 - Compose function
+
+**What was done**
+
+1. Extracted functions to make `parts()` more composed.
+
+**Result**
+
+    9 tests passed, 9 tests total
+
+**Commentary**
+
+This might be going a bit farther than what most people would do but I think it's still worth spending a couple of minutes to make the code more composed and readable.
+
+Commit comment: `. r Compose the parts() function`
+
+----

@@ -16,14 +16,24 @@ class AuthorNameNormalizer {
     private fun String.parts() =
         when {
             hasSuffix() -> {
-                if (count { it == ',' } > 1) throw IllegalArgumentException("name contains two commas")
-                val parts = split(", ")
-                parts[0].split(" ") to ", ${parts[1]}"
+                rejectMultipleCommas()
+                nameAndSuffix()
             }
             else -> {
-                split(' ') to ""
+                nameWithoutSuffix()
             }
         }
+
+    private fun String.nameWithoutSuffix(): Pair<List<String>, String> = split(' ') to ""
+
+    private fun String.nameAndSuffix(): Pair<List<String>, String> {
+        val parts = split(", ")
+        return parts[0].split(" ") to ", ${parts[1]}"
+    }
+
+    private fun String.rejectMultipleCommas() {
+        if (count { it == ',' } > 1) throw IllegalArgumentException("name contains two commas")
+    }
 
     private fun String.hasSuffix(): Boolean = contains(", ")
 
