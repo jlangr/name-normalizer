@@ -705,3 +705,30 @@ Commit comment: `^ t (GREEN) Enable initializing multiple middle names test`
 A small refactoring to align the semantics with the code's behavior: The value can represent multiple middle initials.
 
 Commit comment: `. r Rename variable to middleInitials`
+
+----
+
+## Step 25 - Enable test for suffix
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the test for appending the suffix
+2. Run the test and see it fail
+
+**Result**
+
+    AuthorNameNormalizerTest > appends suffixes to end() FAILED
+    org.opentest4j.AssertionFailedError: 
+    expected: "King, Martin L., Jr."
+     but was: "Jr., Martin L. K."
+        at app//AuthorNameNormalizerTest.appends suffixes to end(AuthorNameNormalizerTest.kt:53)
+
+    9 tests completed, 1 failed, 1 skipped
+
+**Commentary**
+
+The test fails because the logic to append a suffix is missing.
+
+Commit comment: `. t (RED) Enable test to append suffix`
+
+----

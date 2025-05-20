@@ -47,7 +47,6 @@ class AuthorNameNormalizerTest {
             .isEqualTo("Louis-Dreyfus, Julia S. E.")
     }
 
-    @Disabled
     @Test
     fun `appends suffixes to end`() {
         assertThat(normalizer.normalize("Martin Luther King, Jr."))
