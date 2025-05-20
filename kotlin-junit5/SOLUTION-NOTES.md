@@ -421,3 +421,28 @@ Note that it's normal to have multiple refactoring steps in a row. Committing ea
 Commit comment: `. r Extract expression to parts() and convert name parameter to a receiver.`
 
 ----
+
+## Step 12 - Enable trims leading and trailing whitespace test and see it fail.
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the trims leading and trailing whitespace test
+2. Ran the test and saw it fail
+
+**Result**
+
+    AuthorNameNormalizerTest > trims leading and trailing whitespace() FAILED
+    org.opentest4j.AssertionFailedError: 
+    expected: "Boi, Big"
+     but was: ", "
+        at app//AuthorNameNormalizerTest.trims leading and trailing whitespace(AuthorNameNormalizerTest.kt:29)
+
+    9 tests completed, 1 failed, 5 skipped
+
+**Commentary**
+
+The test expects leading and trailing whitespaces to be trimmed from the name. The test fails because the current solution doesn't trim the name.
+
+Commit comment: `. t (RED) Enable trim leading and trailing whitespace test and see it fail`
+
+----
