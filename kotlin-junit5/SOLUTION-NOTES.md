@@ -811,3 +811,22 @@ Commit comment: `.t (RED) Enable the throws exception with multiple commas test`
 Added a check for multiple commas and throw an `IllegalArgumentException` with the expected message.
 
 Commit comment: `. F (GREEN) Implement check for multiple commas`
+
+----
+
+## Step 30 - Refactoring
+
+**What was done**
+
+1. Lift the return out of the if statement in the main function
+2. Convert the if expression to a when expression
+
+**Result**
+
+    9 tests passed, 9 tests total
+
+**Commentary**
+
+This is style-related refactoring that moves the `return` out of the if statement. Then we convert the if to a when.
+
+Commit comment: `. r Replace if with return and convert it to when.`

@@ -1,12 +1,14 @@
 class AuthorNameNormalizer {
     fun normalize(authorName: String): String {
         val name = authorName.trim()
-        if (name.isMultiPart()) {
-            val (parts, suffix) = name.parts()
-            val middleInitials = initialize(middle(parts))
-            return "${parts.last()}, ${parts.first()}$middleInitials$suffix"
+        return when {
+            name.isMultiPart() -> {
+                val (parts, suffix) = name.parts()
+                val middleInitials = initialize(middle(parts))
+                "${parts.last()}, ${parts.first()}$middleInitials$suffix"
+            }
+            else -> name
         }
-        return name
     }
 
     private fun String.isMultiPart(): Boolean = contains(' ')
