@@ -750,3 +750,24 @@ The bulk of the change was made in the `parts()` function. This is a relatively 
 Commit comment: `. F Add logic to extract and append a suffix`
 
 ----
+
+## Step 27 - Refactoring for clarity and style
+
+**What was done**
+
+1. Converted if expression to when expression
+2. Extracted check for `", "` to a private function
+
+**Result**
+
+    8 tests passed, 1 ignored, 9 tests total
+
+**Commentary**
+
+Converting to a when expression is more of a matter of style. The when expression seems to be a preferred form in Kotlin.
+
+The extract function makes the intent of the suffix check clear and expressed in the language of the problem (has suffix rather than contains a comma). 
+
+Commit comment: `. r Convert if to when for style and extract to hasSuffix() function`
+
+----

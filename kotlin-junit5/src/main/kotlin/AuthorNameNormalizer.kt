@@ -12,12 +12,17 @@ class AuthorNameNormalizer {
     private fun String.isMultiPart(): Boolean = contains(' ')
 
     private fun String.parts() =
-        if (this.contains(", ")) {
-            val parts = split(", ")
-            parts[0].split(" ") to ", ${parts[1]}"
-        } else {
-            split(' ') to ""
+        when {
+            hasSuffix() -> {
+                val parts = split(", ")
+                parts[0].split(" ") to ", ${parts[1]}"
+            }
+            else -> {
+                split(' ') to ""
+            }
         }
+
+    private fun String.hasSuffix(): Boolean = contains(", ")
 
     private fun middle(parts: List<String>): List<String> = parts.drop(1).dropLast(1)
 
