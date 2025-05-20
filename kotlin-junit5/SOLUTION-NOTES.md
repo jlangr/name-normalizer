@@ -466,3 +466,21 @@ This change posed a slight risk because I manually renamed the `name` parameter 
 Commit comment: `^ F (GREEN) Implement trims leading and trailing whitespace functionality`
 
 ----
+
+## Step 14 - Refactoring
+
+**What was done**
+
+1. Rename `rawName` to `authorName`
+
+**Result**
+
+    4 tests passed, 5 ignored, 9 tests total
+
+**Commentary**
+
+I decided to rename `rawName` to `authorName` to make it more consistent with the verbal explanation of the function. The name is arguably redundant because the enclosing class already conveys the same idea. However, I chose to live with this redundancy rather than introduce a new concept like raw name.
+
+Commit comment: `. r Refactor rawName to authorName`
+
+----
