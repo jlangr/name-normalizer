@@ -83,3 +83,41 @@ Note that the failing test is focused on a very specific aspect of behavior: the
 Commit: `. t (RED) Enable the empty string test and see it fail`
 
 ----
+
+## Step 2 - Make the failing test pass
+
+**What was done**
+
+1. Make the failing empty string test pass by returning an empty string (`""`).
+
+**Result**
+
+    1 test passed, 8 ignored, 9 tests total
+
+**Commentary**
+
+A common reaction to this solution is something like "What? Why would you do that? That's obviously wrong!"
+
+In his book "The Art of Agile Development", James Shore writes
+
+> ...when you _first_ create a design element, whether it's a new method, a new class, or even a new architecture, be completely specific. Create a simple design that solves exactly the problem you face at the moment and nothing else, no matter how easy it may seem to solve more general problems.
+
+Many people find TDD to be very counterintuitive when they first encounter it because as programmers, they are trained to write code that generalizes a solution. A solution that covers only this one specific scenario runs counter to this and it's hard to put that aside, even just for a little while.
+
+Having to ignore instincts and ingrained habits makes TDD very uncomfortable and, understandably, it's usually the programmers with more years of experience who have strong negative reactions to TDD. Here are a few things to keep in mind to help you get past that natural discomfort:
+
+>*"It is much better to do the right thing wronger than the wrong thing righter. If you do the right thing wrong and correct it, you get better."* —Russell L. Ackoff
+
+1. Right now, the goal is to make the empty string scenario pass its test.
+2. Hard-coding the return value [is the simplest thing that could possibly work](https://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork). In ZOMBIES terms, it's the simplest solution to the simplest scenario.
+3. In TDD, we use a failing test to show that something is wrong rather than reasoning about it based on knowledge or intuition.
+4. Here, doing the right thing (made the test pass) wrong (returned a hardcoded value) forces us to write another failing test to show that we need to make it better.
+5. In TDD, we're not trying to get everything right at one go. TDD is an exercise in chipping away at what we don't know, one bit at a time. Eventually, we expect to get it right, if not everything, then at least most of it.
+
+Commit comment: `. F (GREEN) make empty string test pass`
+
+See also:
+* "[Do The Simplest Thing That Could Possibly Work](https://www.ronjeffries.com/xprog/articles/practices/pracsimplest/)" by Ron Jeffries
+* YouTube video: [If Russ Ackoff had given a TED Talk...](https://youtu.be/OqEeIG8aPPk?si=T8gKwRrC5Rba78ld)
+
+----
