@@ -668,3 +668,24 @@ This is from Kent Beck's "Tidy First?" book. Arranging the functions in reading/
 Commit comment: `. r Tidy up for reading order`
 
 ----
+
+## Step 23 - Enable multiple middle names test
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the initializes multiple middle names test
+2. Run the test and see it fail
+
+**Result**
+
+    7 tests passed, 2 ignored, 9 tests total
+
+**Commentary**
+
+This test immediately passed which would normally raise some questions about the validity of the test. A quick analysis shows that it didn't fail because the logic already accounts for multiple middle names. We might consider combining this with the other tests for initializing middle name but for now we'll move on to the next step.
+
+I am marking it as validated to call out that the risk was noted and considered low.
+
+Commit comment: `^ t (GREEN) Enable initializing multiple middle names test`
+
+----
