@@ -274,3 +274,29 @@ No duplication, code expresses itself clearly, all tests pass, nothing to make s
 Commit: `. d Update notes to comment about skipping refactoring`
 
 ----
+
+## Step 7 - Enable the swaps first and last names test and see it fail
+
+**What was done**
+
+1. Deleted `@Disabled` to enable the swaps first and last names test
+2. Ran the test and saw it fail
+
+**Result**
+
+    org.opentest4j.AssertionFailedError: 
+    expected: "Murakami, Haruki"
+     but was: "Haruki Murakami"
+	    at AuthorNameNormalizerTest.swaps first and last names(AuthorNameNormalizerTest.kt:23)
+
+    9 tests completed, 1 failed, 6 skipped
+
+**Commentary**
+
+This is the Many case where the name contains more than one word. The test expects the first and last names to be swapped and separated by a comma and space.
+
+Looking ahead at the other tests, you'll notice that this is a key piece of functionality that other expected behaviors rely on.
+
+Commit: `. t (RED) Enable swap first and last name test and see it fail`
+
+----
