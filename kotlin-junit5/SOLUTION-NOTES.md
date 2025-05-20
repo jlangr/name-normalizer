@@ -224,3 +224,37 @@ Imagine for a minute that this exercise didn't have tests already written. If yo
 Explore the answers to these questions by experimenting with different choices. Where do those choices lead you? How do you use tests to keep moving forward? Experimenting with different choices and reflecting on the results is a great way to gain deeper insights about TDD.
 
 ----
+
+## Step 5 - Make the single word test pass
+
+**What was done**
+
+1. Return `name` instead of `""`
+
+**Result**
+
+    2 tests passed, 7 ignored, 9 tests total
+
+**Commentary**
+
+You might be thinking that this is exactly where we would have been a couple of steps ago if we had just returned `name` instead of the obviously wrong `""`. So what was point of taking the extra step to get to the same place? Isn't agile development supposed to make us go faster?
+
+The long answer:
+
+I've heard Kent Beck and other practitioners say that TDD is not about going faster but rather, having the option to go slower. If you think you can move forward with a bigger change, you can do that. If you think you made too big of a change and decide to backtrack and take a more measured approach, you can do that, too.
+
+The key is to move forward methodically and with discipline. The TDD rhythm of Red-Green-Refactor gives us a way to grow our design methodically and deliberately:
+
+1. Find a problem by writing a test focused on a specific scenario and see that it fails
+2. Fix the problem by writing as little production code as possible to make the failing test pass
+3. Refactor the code to make it reflect your current understanding as best you can so it's easy to understand what you were thinking and change it later as you learn more about the problem
+
+It takes discipline to stick to this rhythm. A few things you get from taking smaller steps:
+
+1. You are forced to tackle one simple scenario at a time. This leads to smaller increments of code. Smaller is simpler, bigger is more complex. Simpler changes are easier to understand and easier to refactor.
+2. If you find that you need to back out the change, you're backing out a smaller change. Smaller changes are easier to back out than bigger changes.
+3. Antoine de Saint-Exupéry said "A complex system that works is invariable found to have evolved from a simple system that works." Small increments are a key aspect of emergent design. The design evolves slowly in response to small stimuli and every evolutionary change has a specific reason to happen and is backed by tests.
+
+Commit: `. F (GREEN) make the single word test pass`
+
+----
