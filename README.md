@@ -45,6 +45,6 @@ You can watch me derive a solution for the Java project at https://www.youtube.c
 
 You can find solutions for most of these in the `all-solutions` branch.
 
-Missing your favorite language? Please submit a pull request minimally containing the starter code. Code a solution in the `all-solutions` branch if you can. Conspicuously missing: Python. (Let me know if you would like to pair on a solution for Python or Scala; I could use a pair.)
+Missing your favorite language? Please submit a pull request minimally containing the starter code. Code a solution in the `all-solutions` branch if you can. Notably missing: Scala.
 
 Think you have a better solution for a language? I'm happy to see alternate approaches. If you have an incremental improvement, submit a PR.
