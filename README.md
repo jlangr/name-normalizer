@@ -26,20 +26,21 @@ Here is the complete set of instructions:
 
 Currently this repo contains implementations in the following languages (contributor in parentheses):
 
-- C# (Jeff Langr)
-- C++ (gcc) (Jeff Langr)
-- Clojure (Jeff Langr)
-- Elixir (Kerry Buckley)
-- Go (Akeshihiro)
-- Java (Jeff Langr)
-- JavaScript (Jeff Langr)
-- Kotlin (Jon Reid)
-- Objective-C (Jon Reid)
-- Python (Chad Gorshing)
-- Ruby (Jeff Langr)
-- Rust (Akeshihiro)
-- Swift (Jon Reid)
-- TypeScript (Cameron Presley)
+- [C#](https://github.com/jlangr/name-normalizer/tree/all-solutions/csharp) (Jeff Langr)
+- [C++ (gcc)](https://github.com/jlangr/name-normalizer/tree/all-solutions/cpp-gcc) (Jeff Langr)
+- [Clojure](https://github.com/jlangr/name-normalizer/tree/all-solutions/clojure) (Jeff Langr)
+- [Elixir](https://github.com/jlangr/name-normalizer/tree/all-solutions/elixir) (Kerry Buckley)
+- [Go](https://github.com/jlangr/name-normalizer/tree/all-solutions/golang) (Akeshihiro)
+- [Java](https://github.com/jlangr/name-normalizer/tree/all-solutions/java) (Jeff Langr)
+- [JavaScript](https://github.com/jlangr/name-normalizer/tree/all-solutions/js) (Jeff Langr)
+- [Kotlin](https://github.com/jlangr/name-normalizer/tree/all-solutions/kotlin) (Jon Reid)
+- [Kotlin/JUnit5](https://github.com/jlangr/name-normalizer/tree/all-solutions/kotlin-junit5) (Junilu Lacar)
+- [Objective-C](https://github.com/jlangr/name-normalizer/tree/all-solutions/objc) (Jon Reid)
+- [Python](https://github.com/jlangr/name-normalizer/tree/all-solutions/python) (Chad Gorshing)
+- [Ruby](https://github.com/jlangr/name-normalizer/tree/all-solutions/ruby) (Jeff Langr)
+- [Rust](https://github.com/jlangr/name-normalizer/tree/all-solutions/rust) (Akeshihiro)
+- [Swift](https://github.com/jlangr/name-normalizer/tree/all-solutions/swift) (Jon Reid)
+- [TypeScript](https://github.com/jlangr/name-normalizer/tree/all-solutions/typescript) (Cameron Presley)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
