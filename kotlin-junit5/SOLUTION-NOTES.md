@@ -887,6 +887,24 @@ Commit comment: `. r Tidy up for reading order`
 
 ----
 
+## Step 34 - Refactoring: Use type inference
+
+**What was done**
+
+1. Removed explicit type specifications in private functions
+
+**Result**
+
+    9 tests passed, 9 tests total
+
+**Commentary**
+
+These changes remove explicit type specifications in private functions in favor of type inference. This makes the code more concise. Discuss decisions like this with your teammates. Some people might prefer to be explicit and others might prefer to use type inference.
+
+Also, the body of the `nameAndSuffix()` function was converted to an expression by using the `let()` scope function to calculate the return value.
+
+Commit comment: `. r Use type inference in private functions`
+
 ## Additional Exercises
 
 At this point, all the existing tests are passing and the code looks relatively clean. There are other things you could experiment with such as using parameterized tests to combine some tests into one. For example, you could combine the tests related to middle initials into one test. Try it and see how you like how the test code reads. One question I would ask is whether the combined test scenarios are closely related to each other or if they are different enough to warrant keeping them as separate tests. 
