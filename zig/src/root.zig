@@ -40,7 +40,7 @@ test "initializes each of multiple middle names" {
 }
 
 test "appends suffixes to end" {
-    try std.testing.expectEqualStrings("King, Martin L., Jr.", try normalize("Matrin Luther King, Jr."));
+    try std.testing.expectEqualStrings("King, Martin L., Jr.", try normalize("Martin Luther King, Jr."));
 }
 
 test "returns an error when name contains two commas" {
