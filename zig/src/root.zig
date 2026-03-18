@@ -12,37 +12,55 @@ fn normalize(name: []const u8) NameNormalizationError![]const u8 {
 }
 
 test "returns empty string when empty" {
-    try std.testing.expectEqualStrings("", try normalize(""));
+    const actual = try normalize("");
+
+    try std.testing.expectEqualStrings("", actual);
 }
 
 test "returns single word name" {
-    try std.testing.expectEqualStrings("Plato", try normalize("Plato"));
+    const actual = try normalize("Plato");
+
+    try std.testing.expectEqualStrings("Plato", actual);
 }
 
 test "swaps first and last names" {
-    try std.testing.expectEqualStrings("Murakami, Haruki", try normalize("Haruki Murakami"));
+    const actual = try normalize("Haruki Murakami");
+
+    try std.testing.expectEqualStrings("Murakami, Haruki", actual);
 }
 
 test "trims leading and trailing whitespaces" {
-    try std.testing.expectEqualStrings("Boi, Big", try normalize("  Big Boi   "));
+    const actual = try normalize("  Big Boi   ");
+
+    try std.testing.expectEqualStrings("Boi, Big", actual);
 }
 
 test "initializes middle name" {
-    try std.testing.expectEqualStrings("Thoreau, Henry D.", try normalize("Henry David Thoreau"));
+    const actual = try normalize("Henry David Thoreau");
+
+    try std.testing.expectEqualStrings("Thoreau, Henry D.", actual);
 }
 
 test "does not initialize one letter middle name" {
-    try std.testing.expectEqualStrings("Truman, Harry S", try normalize("Harry S Truman"));
+    const actual = try normalize("Harry S Truman");
+
+    try std.testing.expectEqualStrings("Truman, Harry S", actual);
 }
 
 test "initializes each of multiple middle names" {
-    try std.testing.expectEqualStrings("Louis-Dreyfus, Julia S. E.", try normalize("Julia Scarlett Elizabeth Louis-Dreyfus"));
+    const actual = try normalize("Julia Scarlett Elizabeth Louis-Dreyfus");
+
+    try std.testing.expectEqualStrings("Louis-Dreyfus, Julia S. E.", actual);
 }
 
 test "appends suffixes to end" {
-    try std.testing.expectEqualStrings("King, Martin L., Jr.", try normalize("Martin Luther King, Jr."));
+    const actual = try normalize("Martin Luther King, Jr.");
+
+    try std.testing.expectEqualStrings("King, Martin L., Jr.", actual);
 }
 
 test "returns an error when name contains two commas" {
-    try std.testing.expectError(NameNormalizationError.MultipleCommas, normalize("Thurston, Howell, III"));
+    const actual = normalize("Thurston, Howell, III");
+
+    try std.testing.expectError(NameNormalizationError.MultipleCommas, actual);
 }
