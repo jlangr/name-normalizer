@@ -12,35 +12,35 @@ fn normalize(name: []const u8) NameNormalizationError![]const u8 {
 }
 
 test "returns empty string when empty" {
-    try std.testing.expectEqual("", try normalize(""));
+    try std.testing.expectEqualStrings("", try normalize(""));
 }
 
 test "returns single word name" {
-    try std.testing.expectEqual("Plato", try normalize("Plato"));
+    try std.testing.expectEqualStrings("Plato", try normalize("Plato"));
 }
 
 test "swaps first and last names" {
-    try std.testing.expectEqual("Murakami, Haruki", try normalize("Haruki Murakami"));
+    try std.testing.expectEqualStrings("Murakami, Haruki", try normalize("Haruki Murakami"));
 }
 
 test "trims leading and trailing whitespaces" {
-    try std.testing.expectEqual("Boi, Big", try normalize("  Big Boi   "));
+    try std.testing.expectEqualStrings("Boi, Big", try normalize("  Big Boi   "));
 }
 
 test "initializes middle name" {
-    try std.testing.expectEqual("Thoreau, Henry D.", try normalize("Henry David Thoreau"));
+    try std.testing.expectEqualStrings("Thoreau, Henry D.", try normalize("Henry David Thoreau"));
 }
 
 test "does not initialize one letter middle name" {
-    try std.testing.expectEqual("Truman, Harry S", try normalize("Harry S Truman"));
+    try std.testing.expectEqualStrings("Truman, Harry S", try normalize("Harry S Truman"));
 }
 
 test "initializes each of multiple middle names" {
-    try std.testing.expectEqual("Louis-Dreyfus, Julia S. E.", try normalize("Julia Scarlett Elizabeth Louis-Dreyfus"));
+    try std.testing.expectEqualStrings("Louis-Dreyfus, Julia S. E.", try normalize("Julia Scarlett Elizabeth Louis-Dreyfus"));
 }
 
 test "appends suffixes to end" {
-    try std.testing.expectEqual("King, Martin L., Jr.", try normalize("Matrin Luther King, Jr."));
+    try std.testing.expectEqualStrings("King, Martin L., Jr.", try normalize("Matrin Luther King, Jr."));
 }
 
 test "returns an error when name contains two commas" {
