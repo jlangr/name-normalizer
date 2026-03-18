@@ -5,62 +5,99 @@ const NameNormalizationError = error{
     MultipleCommas,
 };
 
-fn normalize(name: []const u8) NameNormalizationError![]const u8 {
+fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationError![]const u8 {
     // TODO Delete these lines and write your implementation
+    _ = allocator;
     _ = name;
     return "foobar";
 }
 
 test "returns empty string when empty" {
-    const actual = try normalize("");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "");
 
     try std.testing.expectEqualStrings("", actual);
 }
 
 test "returns single word name" {
-    const actual = try normalize("Plato");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "Plato");
 
     try std.testing.expectEqualStrings("Plato", actual);
 }
 
 test "swaps first and last names" {
-    const actual = try normalize("Haruki Murakami");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "Haruki Murakami");
 
     try std.testing.expectEqualStrings("Murakami, Haruki", actual);
 }
 
 test "trims leading and trailing whitespaces" {
-    const actual = try normalize("  Big Boi   ");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "  Big Boi   ");
 
     try std.testing.expectEqualStrings("Boi, Big", actual);
 }
 
 test "initializes middle name" {
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
     const actual = try normalize("Henry David Thoreau");
 
-    try std.testing.expectEqualStrings("Thoreau, Henry D.", actual);
+    try std.testing.expectEqualStrings(allocator, "Thoreau, Henry D.", actual);
 }
 
 test "does not initialize one letter middle name" {
-    const actual = try normalize("Harry S Truman");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "Harry S Truman");
 
     try std.testing.expectEqualStrings("Truman, Harry S", actual);
 }
 
 test "initializes each of multiple middle names" {
-    const actual = try normalize("Julia Scarlett Elizabeth Louis-Dreyfus");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "Julia Scarlett Elizabeth Louis-Dreyfus");
 
     try std.testing.expectEqualStrings("Louis-Dreyfus, Julia S. E.", actual);
 }
 
 test "appends suffixes to end" {
-    const actual = try normalize("Martin Luther King, Jr.");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = try normalize(allocator, "Martin Luther King, Jr.");
 
     try std.testing.expectEqualStrings("King, Martin L., Jr.", actual);
 }
 
 test "returns an error when name contains two commas" {
-    const actual = normalize("Thurston, Howell, III");
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+
+    const actual = normalize(allocator, "Thurston, Howell, III");
 
     try std.testing.expectError(NameNormalizationError.MultipleCommas, actual);
 }
