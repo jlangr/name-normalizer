@@ -57,9 +57,9 @@ test "initializes middle name" {
     defer arena.deinit();
     const allocator = arena.allocator();
 
-    const actual = try normalize("Henry David Thoreau");
+    const actual = try normalize(allocator, "Henry David Thoreau");
 
-    try std.testing.expectEqualStrings(allocator, "Thoreau, Henry D.", actual);
+    try std.testing.expectEqualStrings("Thoreau, Henry D.", actual);
 }
 
 test "does not initialize one letter middle name" {
