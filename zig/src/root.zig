@@ -3,10 +3,9 @@ const std = @import("std");
 
 const NameNormalizationError = error{
     MultipleCommas,
-    OutOfMemory,
 };
 
-fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationError![]const u8 {
+fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
     var arena = std.heap.ArenaAllocator.init(allocator);
     defer arena.deinit();
     const scratch = arena.allocator();
