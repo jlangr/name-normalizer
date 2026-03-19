@@ -7,10 +7,65 @@ const NameNormalizationError = error{
 };
 
 fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationError![]const u8 {
-    // TODO Delete these lines and write your implementation
-    _ = allocator;
-    _ = name;
-    return "foobar";
+    var arena = std.heap.ArenaAllocator.init(allocator);
+    defer arena.deinit();
+    const scratch = arena.allocator();
+
+    var list = std.ArrayList([]const u8).empty;
+    defer list.deinit(scratch);
+
+    if (std.mem.count(u8, name, ",") > 1) {
+        return NameNormalizationError.MultipleCommas;
+    }
+
+    const trimmed_name = std.mem.trim(u8, name, " \t");
+
+    var left: []const u8 = trimmed_name;
+    var right: []const u8 = "";
+    if (std.mem.indexOf(u8, trimmed_name, ", ")) |idx| {
+        left = trimmed_name[0..idx];
+        right = trimmed_name[idx..];
+    }
+
+    var iter = std.mem.splitScalar(u8, left, ' ');
+    while (iter.next()) |e| {
+        if (e.len > 0) {
+            try list.append(scratch, e);
+        }
+    }
+
+    if (list.items.len > 1) {
+        var result_list = std.ArrayList([]const u8).empty;
+        defer result_list.deinit(scratch);
+
+        try result_list.append(scratch, list.items[list.items.len - 1]);
+        try result_list.append(scratch, ", ");
+        try result_list.append(scratch, list.items[0]);
+
+        const start = 1;
+        const end = list.items.len - 1;
+        for (start..end) |i| {
+            try result_list.append(scratch, " ");
+            try result_list.append(scratch, try initialize(scratch, list.items[i]));
+        }
+
+        try result_list.append(scratch, right);
+
+        return try std.mem.join(allocator, "", result_list.items);
+    }
+
+    return trimmed_name;
+}
+
+fn initialize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
+    if (name.len == 0) return name;
+    if (name.len == 1) return name;
+
+    var result = try allocator.alloc(u8, 2);
+    result[0] = name[0];
+    result[1] = '.';
+
+    return result;
 }
 
 test "returns empty string when empty" {
