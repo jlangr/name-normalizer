@@ -42,9 +42,7 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationEr
         try resulting_name_parts.append(scratch, ", ");
         try resulting_name_parts.append(scratch, name_parts.items[0]);
 
-        const start = 1;
-        const end = name_parts.items.len - 1;
-        for (start..end) |i| {
+        for (1..name_parts.items.len - 1) |i| {
             try resulting_name_parts.append(scratch, " ");
             try resulting_name_parts.append(scratch, try initialize(scratch, name_parts.items[i]));
         }
