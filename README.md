@@ -41,6 +41,7 @@ Currently this repo contains implementations in the following languages (contrib
 - [Rust](https://github.com/jlangr/name-normalizer/tree/all-solutions/rust) (Akeshihiro)
 - [Swift](https://github.com/jlangr/name-normalizer/tree/all-solutions/swift) (Jon Reid)
 - [TypeScript](https://github.com/jlangr/name-normalizer/tree/all-solutions/typescript) (Cameron Presley)
+- [Zig](https://github.com/jlangr/name-normalizer/tree/all-solutions/zig) (Akeshihiro)
 
 You can watch me derive a solution for the Java project at https://www.youtube.com/watch?v=OECwGP-bOwU.
 
