@@ -58,8 +58,7 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationEr
 }
 
 fn initialize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
-    if (name.len == 0) return name;
-    if (name.len == 1) return name;
+    if (name.len < 2) return name;
 
     var result = try allocator.alloc(u8, 2);
     result[0] = name[0];
