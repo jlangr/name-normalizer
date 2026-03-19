@@ -46,7 +46,7 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
     // Input name format: <first_name> <middle_name>... <last_name>
     // Wanted result format: <last_name>, <first_name> <initialized_middle_name>...
 
-    // Collect the last name and the fist name
+    // Collect the last name and the first name
     try resulting_name_parts.append(scratch_space, name_parts.items[name_parts.items.len - 1]);
     try resulting_name_parts.append(scratch_space, ", ");
     try resulting_name_parts.append(scratch_space, name_parts.items[0]);
