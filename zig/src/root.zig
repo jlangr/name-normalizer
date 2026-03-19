@@ -11,8 +11,8 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationEr
     defer arena.deinit();
     const scratch = arena.allocator();
 
-    var list = std.ArrayList([]const u8).empty;
-    defer list.deinit(scratch);
+    var name_parts = try std.ArrayList([]const u8).initCapacity(scratch, 8);
+    defer name_parts.deinit(scratch);
 
     if (std.mem.count(u8, name, ",") > 1) {
         return NameNormalizationError.MultipleCommas;
@@ -30,28 +30,28 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) NameNormalizationEr
     var iter = std.mem.splitScalar(u8, left, ' ');
     while (iter.next()) |e| {
         if (e.len > 0) {
-            try list.append(scratch, e);
+            try name_parts.append(scratch, e);
         }
     }
 
-    if (list.items.len > 1) {
-        var result_list = std.ArrayList([]const u8).empty;
-        defer result_list.deinit(scratch);
+    if (name_parts.items.len > 1) {
+        var resulting_name_parts = try std.ArrayList([]const u8).initCapacity(scratch, 8);
+        defer resulting_name_parts.deinit(scratch);
 
-        try result_list.append(scratch, list.items[list.items.len - 1]);
-        try result_list.append(scratch, ", ");
-        try result_list.append(scratch, list.items[0]);
+        try resulting_name_parts.append(scratch, name_parts.items[name_parts.items.len - 1]);
+        try resulting_name_parts.append(scratch, ", ");
+        try resulting_name_parts.append(scratch, name_parts.items[0]);
 
         const start = 1;
-        const end = list.items.len - 1;
+        const end = name_parts.items.len - 1;
         for (start..end) |i| {
-            try result_list.append(scratch, " ");
-            try result_list.append(scratch, try initialize(scratch, list.items[i]));
+            try resulting_name_parts.append(scratch, " ");
+            try resulting_name_parts.append(scratch, try initialize(scratch, name_parts.items[i]));
         }
 
-        try result_list.append(scratch, right);
+        try resulting_name_parts.append(scratch, right);
 
-        return try std.mem.join(allocator, "", result_list.items);
+        return try std.mem.join(allocator, "", resulting_name_parts.items);
     }
 
     return trimmed_name;
