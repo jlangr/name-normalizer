@@ -6,52 +6,63 @@ const NameNormalizationError = error{
 };
 
 fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
-    var arena = std.heap.ArenaAllocator.init(allocator);
-    defer arena.deinit();
-    const scratch = arena.allocator();
-
-    var name_parts = try std.ArrayList([]const u8).initCapacity(scratch, 8);
-    defer name_parts.deinit(scratch);
-
+    // First things first: If the format is invalid, we are out ...
     if (std.mem.count(u8, name, ",") > 1) {
         return NameNormalizationError.MultipleCommas;
     }
 
+    var scratch_arena = std.heap.ArenaAllocator.init(allocator);
+    defer scratch_arena.deinit();
+    const scratch_space = scratch_arena.allocator();
+
     const trimmed_name = std.mem.trim(u8, name, " \t");
 
-    var left: []const u8 = trimmed_name;
-    var right: []const u8 = "";
+    var actual_name: []const u8 = trimmed_name;
+    var name_suffix: []const u8 = "";
     if (std.mem.indexOf(u8, trimmed_name, ", ")) |idx| {
-        left = trimmed_name[0..idx];
-        right = trimmed_name[idx..];
+        actual_name = trimmed_name[0..idx];
+        name_suffix = trimmed_name[idx..];
     }
 
-    var iter = std.mem.splitScalar(u8, left, ' ');
+    // Split the name into its individual parts
+    var name_parts = try std.ArrayList([]const u8).initCapacity(scratch_space, 8);
+    defer name_parts.deinit(scratch_space);
+
+    var iter = std.mem.splitScalar(u8, actual_name, ' ');
     while (iter.next()) |e| {
         if (e.len > 0) {
-            try name_parts.append(scratch, e);
+            try name_parts.append(scratch_space, e);
         }
     }
 
-    if (name_parts.items.len > 1) {
-        var resulting_name_parts = try std.ArrayList([]const u8).initCapacity(scratch, 8);
-        defer resulting_name_parts.deinit(scratch);
-
-        try resulting_name_parts.append(scratch, name_parts.items[name_parts.items.len - 1]);
-        try resulting_name_parts.append(scratch, ", ");
-        try resulting_name_parts.append(scratch, name_parts.items[0]);
-
-        for (1..name_parts.items.len - 1) |i| {
-            try resulting_name_parts.append(scratch, " ");
-            try resulting_name_parts.append(scratch, try initialize(scratch, name_parts.items[i]));
-        }
-
-        try resulting_name_parts.append(scratch, right);
-
-        return try std.mem.join(allocator, "", resulting_name_parts.items);
+    if (name_parts.items.len <= 1) {
+        return trimmed_name;
     }
 
-    return trimmed_name;
+    // We need space for all name parts, the spacing inbetween and the suffix, so basicall len(name_parts)*2
+    var resulting_name_parts = try std.ArrayList([]const u8).initCapacity(scratch_space, name_parts.items.len * 2);
+    defer resulting_name_parts.deinit(scratch_space);
+
+    // Input name format: <first_name> <middle_name>... <last_name>
+    // Wanted result format: <last_name>, <first_name> <initialized_middle_name>...
+
+    // Collect the last name and the fist name
+    try resulting_name_parts.append(scratch_space, name_parts.items[name_parts.items.len - 1]);
+    try resulting_name_parts.append(scratch_space, ", ");
+    try resulting_name_parts.append(scratch_space, name_parts.items[0]);
+
+    // Collect and transform the middle names
+    for (1..name_parts.items.len - 1) |i| {
+        try resulting_name_parts.append(scratch_space, " ");
+        try resulting_name_parts.append(scratch_space, try initialize(scratch_space, name_parts.items[i]));
+    }
+
+    // Don't forget the suffix
+    if (name_suffix.len > 0) {
+        try resulting_name_parts.append(scratch_space, name_suffix);
+    }
+
+    return try std.mem.join(allocator, "", resulting_name_parts.items);
 }
 
 fn initialize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
