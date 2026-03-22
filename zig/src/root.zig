@@ -2,6 +2,7 @@
 const std = @import("std");
 
 // Increment this when all currently running tests are passing successfully.
+// Max tests: 9
 const run_tests = 1;
 
 const NameNormalizationError = error{
