@@ -24,6 +24,7 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
     defer scratch_arena.deinit();
     const scratch_space = scratch_arena.allocator();
 
+    // Split the given name into the actual name part and the optional suffix
     var actual_name: []const u8 = trimmed_name;
     var name_suffix: []const u8 = "";
     if (std.mem.indexOf(u8, trimmed_name, ", ")) |idx| {
