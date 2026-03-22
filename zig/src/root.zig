@@ -15,14 +15,14 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
         return NameNormalizationError.MultipleCommas;
     }
 
-    var scratch_arena = std.heap.ArenaAllocator.init(allocator);
-    defer scratch_arena.deinit();
-    const scratch_space = scratch_arena.allocator();
-
     const trimmed_name = std.mem.trim(u8, name, " \t");
     if (trimmed_name.len == 0) {
         return trimmed_name;
     }
+
+    var scratch_arena = std.heap.ArenaAllocator.init(allocator);
+    defer scratch_arena.deinit();
+    const scratch_space = scratch_arena.allocator();
 
     var actual_name: []const u8 = trimmed_name;
     var name_suffix: []const u8 = "";
