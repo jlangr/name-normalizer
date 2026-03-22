@@ -20,6 +20,9 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
     const scratch_space = scratch_arena.allocator();
 
     const trimmed_name = std.mem.trim(u8, name, " \t");
+    if (trimmed_name.len == 0) {
+        return trimmed_name;
+    }
 
     var actual_name: []const u8 = trimmed_name;
     var name_suffix: []const u8 = "";
@@ -39,7 +42,8 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
         }
     }
 
-    if (name_parts.items.len <= 1) {
+    // If there is only one word, then this is our result
+    if (name_parts.items.len == 1) {
         return trimmed_name;
     }
 
