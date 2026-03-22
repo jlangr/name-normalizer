@@ -10,8 +10,6 @@
 
 ## Running the tests
 
-# In a terminal
-
 ```sh
 zig test src/*
 ```
