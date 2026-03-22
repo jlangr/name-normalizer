@@ -48,6 +48,8 @@ fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
         return trimmed_name;
     }
 
+    // Now we have assemble the resulting name ...
+
     // We need space for all name parts plus the spacing inbetween plus the suffix, so basically len(name_parts)*2
     var resulting_name_parts = try std.ArrayList([]const u8).initCapacity(scratch_space, name_parts.items.len * 2);
     defer resulting_name_parts.deinit(scratch_space);
