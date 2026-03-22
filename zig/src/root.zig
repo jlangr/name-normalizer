@@ -12,7 +12,7 @@ const NameNormalizationError = error{
 fn normalize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
     _ = allocator;
     _ = name;
-    return "foobar";
+    return "wha?";
 }
 
 test "returns empty string when empty" {
