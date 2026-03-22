@@ -3,7 +3,7 @@ const std = @import("std");
 
 // Increment this when all currently running tests are passing successfully.
 // Max tests: 9
-const run_tests = 1;
+const ENABLED_TESTS = 1;
 
 const NameNormalizationError = error{
     MultipleCommas,
@@ -84,7 +84,7 @@ fn initialize(allocator: std.mem.Allocator, name: []const u8) ![]const u8 {
 }
 
 test "returns empty string when empty" {
-    if (run_tests < 1) return error.SkipZigTest;
+    if (ENABLED_TESTS < 1) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -96,7 +96,7 @@ test "returns empty string when empty" {
 }
 
 test "returns single word name" {
-    if (run_tests < 2) return error.SkipZigTest;
+    if (ENABLED_TESTS < 2) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -108,7 +108,7 @@ test "returns single word name" {
 }
 
 test "swaps first and last names" {
-    if (run_tests < 3) return error.SkipZigTest;
+    if (ENABLED_TESTS < 3) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -120,7 +120,7 @@ test "swaps first and last names" {
 }
 
 test "trims leading and trailing whitespaces" {
-    if (run_tests < 4) return error.SkipZigTest;
+    if (ENABLED_TESTS < 4) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -132,7 +132,7 @@ test "trims leading and trailing whitespaces" {
 }
 
 test "initializes middle name" {
-    if (run_tests < 5) return error.SkipZigTest;
+    if (ENABLED_TESTS < 5) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -144,7 +144,7 @@ test "initializes middle name" {
 }
 
 test "does not initialize one letter middle name" {
-    if (run_tests < 6) return error.SkipZigTest;
+    if (ENABLED_TESTS < 6) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -156,7 +156,7 @@ test "does not initialize one letter middle name" {
 }
 
 test "initializes each of multiple middle names" {
-    if (run_tests < 7) return error.SkipZigTest;
+    if (ENABLED_TESTS < 7) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -168,7 +168,7 @@ test "initializes each of multiple middle names" {
 }
 
 test "appends suffixes to end" {
-    if (run_tests < 8) return error.SkipZigTest;
+    if (ENABLED_TESTS < 8) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
@@ -180,7 +180,7 @@ test "appends suffixes to end" {
 }
 
 test "returns an error when name contains two commas" {
-    if (run_tests < 9) return error.SkipZigTest;
+    if (ENABLED_TESTS < 9) return error.SkipZigTest;
 
     var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
